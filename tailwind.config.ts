@@ -14,7 +14,8 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        "green-logo" : "#6FCF97"
+        "green-3" : "#6FCF97",
+        "green-2" : "#27AE60"
       },
       borderRadius: {
         "4xl" : "2rem"
