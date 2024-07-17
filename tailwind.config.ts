@@ -15,10 +15,14 @@ const config: Config = {
       },
       colors: {
         "green-3" : "#6FCF97",
-        "green-2" : "#27AE60"
+        "green-2" : "#27AE60",
+        "dark-blue": "#00008b"
       },
       borderRadius: {
         "4xl" : "2rem"
+      },
+      fontFamily: {
+        "gideonRoman": ['var(--font-gideonRoman)']
       }
     },
   },

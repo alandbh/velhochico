@@ -26,7 +26,7 @@ export default function Home() {
         <div className="bg-green-500 h-5 "></div>
       </div>
       <Title>
-        <h1 className="font-gideon">TITULO</h1>
+        <h1 className="font-gideonRoman">chalé de 1 quarto</h1>
       </Title>
     </main>
   );
