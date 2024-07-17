@@ -1,21 +1,28 @@
-import React from 'react'
-import IconWhatsapp from './icons/Whatsapp'
+import IconWhatsapp from "./icons/Whatsapp";
+import Link from "next/link";
 
-const Botao = ({icon,text,style}:any) => {
+const Botao = ({ text, style, href, icon }: any) => {
   return (
-    <div>
-      {style==='primary'?
-        (<div className="text-white bg-green-2 py-3 px-6 rounded-md font-bold uppercase flex">
-            {icon === true? <IconWhatsapp />: null }
-            <p className={icon===true?'ml-2':''}>{text}</p>
-        </div>):
-        (<div className='text-white bg-black  py-3 px-6 rounded-md font-bold uppercase flex border-solid border-2 border-green-2'>
-          {icon === true? <IconWhatsapp />: null }
-          <p className={icon===true?'ml-2':''}>{text}</p>
-        </div>)
-      }
-    </div>
-  )
-}
+    <>
+      {style === "primary" ? (
+        <Link
+          href={href}
+          className="text-white bg-green-2 py-3 px-6 rounded-md font-bold uppercase flex gap-2"
+        >
+          {icon}
+          <span className="whitespace-nowrap">{text}</span>
+        </Link>
+      ) : (
+        <Link
+          href={href}
+          className="text-green-2 py-3 px-6 rounded-md font-bold gap-2 uppercase flex border-solid border-2 border-green-2"
+        >
+          {icon}
+          <span className="whitespace-nowrap">{text}</span>
+        </Link>
+      )}
+    </>
+  );
+};
 
-export default Botao
+export default Botao;
