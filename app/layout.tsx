@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Gideon_Roman } from "next/font/google";
+
 import "./globals.css";
 
 const gideonRoman = Gideon_Roman({
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gideonRoman.className}>{children}</body>
+      <body className={`${gideonRoman.variable} font-sans`}>{children}</body>
     </html>
   );
 }
