@@ -3,6 +3,7 @@ import LogoLink from "./_components/LogoLink";
 import Button from "./_components/Button";
 import IconWhatsapp from "./_components/icons/Whatsapp";
 import Title from "./_components/Title";
+import NavMenu from "./_components/NavMenu";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -28,6 +29,8 @@ export default function Home() {
       <Title>
         <h1 className="font-gideonRoman">chalé de 1 quarto</h1>
       </Title>
+
+      <NavMenu link={["/", "/acomodacoes", "#", "#", "#"]}></NavMenu>
     </main>
   );
 }

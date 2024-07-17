@@ -21,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${gideonRoman.variable} font-sans`}>{children}</body>
+      <body className={`${gideonRoman.variable} font-georgia`}>{children}</body>
     </html>
   );
 }
