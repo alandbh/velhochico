@@ -1,7 +1,6 @@
-import IconWhatsapp from "./icons/Whatsapp";
 import Link from "next/link";
 
-const Botao = ({ text, style, href, icon }: any) => {
+const Button = ({ text, style, href, icon }: any) => {
   return (
     <>
       {style === "primary" ? (
@@ -25,4 +24,4 @@ const Botao = ({ text, style, href, icon }: any) => {
   );
 };
 
-export default Botao;
+export default Button;
