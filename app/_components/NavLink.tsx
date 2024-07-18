@@ -13,8 +13,8 @@ const NavLink = ({ children, href }: NavLinkProps) => {
   return (
     <li>
       <Link
-        className={`pb-1 px-1 ${
-          pathName === href ? "border-b-2 border-black font-bold" : ""
+        className={`pb-1 px-1 text-white ${
+          pathName === href ? "border-b-2 border-white font-bold" : ""
         }`}
         href={href}
       >

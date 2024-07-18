@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Gideon_Roman } from "next/font/google";
+import { Gideon_Roman, Lora } from "next/font/google";
 
 import "./globals.css";
 
@@ -7,6 +7,12 @@ const gideonRoman = Gideon_Roman({
   subsets: ["latin"],
   weight: ["400"],
   variable: "--font-gideonRoman",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-lora",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${gideonRoman.variable} font-georgia`}>{children}</body>
+      <body className={`${gideonRoman.variable} ${lora.variable} font-lora`}>
+        {children}
+      </body>
     </html>
   );
 }
