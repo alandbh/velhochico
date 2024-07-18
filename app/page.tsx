@@ -30,7 +30,7 @@ export default function Home() {
         <h1 className="font-gideonRoman">chalé de 1 quarto</h1>
       </Title>
 
-      <NavMenu link={["/", "/acomodacoes", "#", "#", "#"]}></NavMenu>
+      <NavMenu></NavMenu>
     </main>
   );
 }
