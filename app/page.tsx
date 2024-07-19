@@ -4,6 +4,7 @@ import Button from "./_components/Button";
 import IconWhatsapp from "./_components/icons/Whatsapp";
 import Title from "./_components/Title";
 import NavMenu from "./_components/NavMenu";
+import Header from "./_components/Header";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -31,6 +32,7 @@ export default function Home() {
       </Title>
 
       <NavMenu></NavMenu>
+      <Header></Header>
     </main>
   );
 }

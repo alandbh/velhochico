@@ -16,14 +16,19 @@ const config: Config = {
       colors: {
         "green-3" : "#6FCF97",
         "green-2" : "#27AE60",
-        "dark-blue": "#0D4B9E"
+        "dark-blue": "#0D4B9E",
+        "header-bg": "#14274AB3"
       },
       borderRadius: {
         "4xl" : "2rem"
       },
       fontFamily: {
         "gideonRoman": ['var(--font-gideonRoman)'],
-        "lora": ['var(--font-lora)']
+        "lora": ['var(--font-lora)'],
+        "licorice": ['var(--font-licorice)']
+      },
+      height: {
+        "97":"25rem"
       }
     },
   },
