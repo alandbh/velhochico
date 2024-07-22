@@ -6,7 +6,7 @@ const Button = ({ text, style, href, icon }: any) => {
       {style === "primary" ? (
         <Link
           href={href}
-          className="text-white bg-green-2 py-3 px-6 rounded-md font-bold uppercase flex gap-2"
+          className="text-white font-montserrat bg-green-2 py-3 px-6 rounded-md font-bold uppercase flex gap-2 w-fit"
         >
           {icon}
           <span className="whitespace-nowrap">{text}</span>
@@ -14,7 +14,7 @@ const Button = ({ text, style, href, icon }: any) => {
       ) : (
         <Link
           href={href}
-          className="text-green-2 py-3 px-6 rounded-md font-bold gap-2 uppercase flex border-solid border-2 border-green-2"
+          className="text-green-2 py-3 px-6 rounded-md font-bold gap-2 uppercase flex border-solid border-2 border-green-2 w-fit"
         >
           {icon}
           <span className="whitespace-nowrap">{text}</span>

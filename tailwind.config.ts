@@ -17,7 +17,8 @@ const config: Config = {
         "green-3" : "#6FCF97",
         "green-2" : "#27AE60",
         "dark-blue": "#0D4B9E",
-        "header-bg": "#14274AB3"
+        "header-bg": "#14274AB3",
+        "darkest-blue": "#14274A"
       },
       borderRadius: {
         "4xl" : "2rem"
@@ -25,7 +26,8 @@ const config: Config = {
       fontFamily: {
         "gideonRoman": ['var(--font-gideonRoman)'],
         "lora": ['var(--font-lora)'],
-        "licorice": ['var(--font-licorice)']
+        "licorice": ['var(--font-licorice)'],
+        "montserrat": ['var(--font-montserrat)']
       },
       height: {
         "97":"25rem"

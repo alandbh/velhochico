@@ -5,6 +5,7 @@ import IconWhatsapp from "./_components/icons/Whatsapp";
 import Title from "./_components/Title";
 import NavMenu from "./_components/NavMenu";
 import Header from "./_components/Header";
+import Card from "./_components/Card";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -33,6 +34,11 @@ export default function Home() {
 
       <NavMenu></NavMenu>
       <Header backgroundImg="/rede.jpg">Acomodações</Header>
+      <br />
+      <Card image="/rede.jpg" title="Chalé de 1 quarto">
+        Chalé com varanda, vista para a serra, ar-condicionado, frigobar e
+        cozinha.
+      </Card>
     </main>
   );
 }
