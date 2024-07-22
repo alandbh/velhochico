@@ -32,7 +32,7 @@ export default function Home() {
       </Title>
 
       <NavMenu></NavMenu>
-      <Header backgroundImg="/rede.jpg"></Header>
+      <Header backgroundImg="/rede.jpg">Acomodações</Header>
     </main>
   );
 }
