@@ -16,14 +16,7 @@ const Card = ({ image, title, children }: CardProps) => {
         <Button text="confira" style="primary" href="#"></Button>
       </div>
       <div className="relative col-span-5 w-auto">
-        <Image
-          className=""
-          alt=""
-          src={image}
-          quality={100}
-          fill
-          objectFit="cover"
-        />
+        <Image className="object-cover" alt="" src={image} quality={100} fill />
       </div>
     </div>
   );

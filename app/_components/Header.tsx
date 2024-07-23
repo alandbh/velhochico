@@ -16,8 +16,7 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
         src={backgroundImg}
         quality={100}
         fill
-        objectFit="cover"
-        objectPosition="center"
+        className="object-cover object-center"
       />
       <div className="flex justify-around h-fit items-center z-10">
         <div className="col-start-2 col-span-2">
