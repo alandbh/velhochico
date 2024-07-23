@@ -30,7 +30,8 @@ const config: Config = {
         "montserrat": ['var(--font-montserrat)']
       },
       height: {
-        "97":"25rem"
+        "97":"25rem",
+        "65": "17rem"
       }
     },
   },

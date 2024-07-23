@@ -6,6 +6,7 @@ import Title from "./_components/Title";
 import NavMenu from "./_components/NavMenu";
 import Header from "./_components/Header";
 import Card from "./_components/Card";
+import Footer from "./_components/Footer";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
@@ -39,6 +40,8 @@ export default function Home() {
         Chalé com varanda, vista para a serra, ar-condicionado, frigobar e
         cozinha.
       </Card>
+      <br />
+      <Footer></Footer>
     </main>
   );
 }
