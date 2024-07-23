@@ -6,7 +6,7 @@ const LogoLink = ({ href }: { href: string }) => {
     <div>
       <Link href={href}>
         <div className="bg-green-3 px-4 pt-6 pb-5 rounded-b-4xl w-fit">
-          <IconLogo />
+          <IconLogo color="#14274A" />
         </div>
       </Link>
     </div>
