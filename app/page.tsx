@@ -1,3 +1,5 @@
+"use client";
+import * as React from "react";
 import Image from "next/image";
 import LogoLink from "./_components/LogoLink";
 import Button from "./_components/Button";
@@ -7,7 +9,17 @@ import NavMenu from "./_components/NavMenu";
 import Header from "./_components/Header";
 import Card from "./_components/Card";
 import Footer from "./_components/Footer";
+import NextJsImage from "./_components/LightBox";
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+import arvore from "@/public/arvore.png";
+import cachoeira1 from "@/public/cachoeira1.png";
+import cachoeira2 from "@/public/cachoeira2.png";
+import ceu from "@/public/ceu.png";
+
 export default function Home() {
+  const [open, setOpen] = React.useState(false);
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <LogoLink href="/" />
@@ -41,6 +53,15 @@ export default function Home() {
         cozinha.
       </Card>
       <br />
+
+      <Image src={arvore} alt="arvore" onClick={() => setOpen(true)}></Image>
+
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={[arvore, cachoeira1, cachoeira2, ceu]}
+        render={{ slide: NextJsImage }}
+      />
       <Footer></Footer>
     </main>
   );
