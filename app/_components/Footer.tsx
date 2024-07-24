@@ -8,7 +8,7 @@ import IconWhatsapp from "./icons/Whatsapp";
 const Footer = () => {
   return (
     <div className="h-65 w-full bg-darkest-blue flex justify-between items-center text-white relative px-20 mt-[5.5rem]">
-      <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45	left-[50%] -z-10"></div>
+      <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
       <ul>
         <li className="mb-5">
           <IconLogo color="#ffffff" />
