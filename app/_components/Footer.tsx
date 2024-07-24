@@ -53,7 +53,10 @@ const Footer = () => {
       <ul className="text-2xl">
         <li>Reservas</li>
         <li>
-          <a href="tel:+99929-0110" className="flex items-center gap-x-2">
+          <a
+            href=" https://wa.me/553799290110"
+            className="flex items-center gap-x-2"
+          >
             <IconWhatsapp color="#ffffff" />
             99929-0110
           </a>
