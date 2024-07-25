@@ -13,13 +13,17 @@ import NextJsImage from "./_components/LightBox";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import arvore from "@/public/arvore.png";
-import cachoeira1 from "@/public/cachoeira1.png";
-import cachoeira2 from "@/public/cachoeira2.png";
-import ceu from "@/public/ceu.png";
+const images = [
+  { src: "/arvore.png" },
+  { src: "/cachoeira1.png" },
+  { src: "/cachoeira2.png" },
+  { src: "/ceu.png" },
+  { src: "/queijos.jpg" },
+  { src: "/chale.jpg" },
+];
 
 export default function Home() {
-  const [open, setOpen] = React.useState(false);
+  const [index, setIndex] = React.useState(-1);
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
       <LogoLink href="/" />
@@ -53,13 +57,27 @@ export default function Home() {
         cozinha.
       </Card>
       <br />
-
-      <Image src={arvore} alt="arvore" onClick={() => setOpen(true)}></Image>
+      <div className="w-full flex">
+        {images.map((image, index) => (
+          <div key={index} className="h-81 w-81 relative">
+            <Image
+              key={index}
+              className="object-cover"
+              src={image.src}
+              alt={`Image ${index + 1}`}
+              onClick={() => setIndex(index)}
+              fill
+              objectFit="cover"
+            />
+          </div>
+        ))}
+      </div>
 
       <Lightbox
-        open={open}
-        close={() => setOpen(false)}
-        slides={[arvore, cachoeira1, cachoeira2, ceu]}
+        index={index}
+        open={index >= 0}
+        close={() => setIndex(-1)}
+        slides={images}
         render={{ slide: NextJsImage }}
       />
       <Footer></Footer>

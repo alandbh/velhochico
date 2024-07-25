@@ -31,7 +31,12 @@ const config: Config = {
       },
       height: {
         "97":"25rem",
-        "65": "17rem"
+        "65": "17rem",
+        "81":"21.375rem",
+        "98":"42.75rem"
+      },
+      width: {
+        "81":"21.375rem"
       }
     },
   },
