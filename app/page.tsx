@@ -57,22 +57,25 @@ export default function Home() {
         cozinha.
       </Card>
       <br />
-      <div className="w-full flex">
-        {images.map((image, index) => (
-          <div key={index} className="h-81 w-81 relative">
-            <Image
+      <div className="w-full grid grid-cols-12 gap-5">
+        <div className="col-start-2 col-span-10 w-full grid grid-cols-3 grid-rows-2 grid-flow-col">
+          {images.map((image, index) => (
+            <div
               key={index}
-              className="object-cover"
-              src={image.src}
-              alt={`Image ${index + 1}`}
-              onClick={() => setIndex(index)}
-              fill
-              objectFit="cover"
-            />
-          </div>
-        ))}
+              className="h-81 w-auto relative hover:cursor-pointer"
+            >
+              <Image
+                key={index}
+                className="object-cover"
+                src={image.src}
+                alt={`Image ${index + 1}`}
+                onClick={() => setIndex(index)}
+                fill
+              />
+            </div>
+          ))}
+        </div>
       </div>
-
       <Lightbox
         index={index}
         open={index >= 0}
