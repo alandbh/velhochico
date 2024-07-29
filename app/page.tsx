@@ -54,7 +54,7 @@ export default function Home() {
             queijos deliciosos e muito mais!
           </p>
         </div>
-        <div className="row-start-3 col-span-10 z-10 col-start-2 flex justify-center items-end">
+        <div className="row-start-3 col-span-10 z-20 col-start-2 flex justify-center items-end">
           <Button
             text="reserve já"
             icon={<IconWhatsapp color="white" />}
@@ -70,56 +70,78 @@ export default function Home() {
       </header>
       <main
         id="content"
-        className="flex min-h-screen flex-col items-center p-24"
+        className="flex min-h-screen flex-col items-center py-22"
       >
-        <LogoLink href="/" />
-        <br />
-        <Button
-          text="reserve já"
-          icon={<IconWhatsapp color="blue" />}
-          style="primary"
-          href="/#"
-        />
-        <br />
-        <Button
-          text="reserve já"
-          href="/#"
-          icon={<IconWhatsapp color="red" />}
-        ></Button>
-
-        <div className="w-[300px] grid grid-cols-12  border border-slate-500 h-[200px]">
-          <div className="bg-red-500 h-5 col-span-2 start-2 col-start-2"></div>
-          <div className="bg-green-500 h-5 "></div>
+        <Title>A pousada</Title>
+        <p className="text-2xl text-center mt-12">
+          Desfrute da tranquilidade e da beleza da Serra da Canastra na Pousada
+          Velho Chico.
+        </p>
+        <p className="text-2xl text-center">
+          Um refúgio cercado por belas árvores como pau-brasil, jacarandá e ipê,
+          a apenas 300 metros do Rio São Francisco.
+        </p>
+        <div className="grid grid-cols-12 gap-5 pt-12">
+          <div className="col-start-2 col-span-5 text-xl flex flex-col gap-y-8">
+            <p>
+              Aproveite as belas praias, piscinas naturais e corredeiras para
+              relaxar, nadar e praticar bóia cross. Desfrute de vistas
+              deslumbrantes da Serra da Canastra, visíveis de toda a pousada,
+              especialmente das varandas dos chalés.
+            </p>
+            <p>
+              Viva a experiência autêntica de uma fazenda, tomando leite ao pé
+              da vaca, saboreando o famoso queijo canastra e passeando a cavalo.
+              Divirta-se no campo de futebol, explore com um guia turístico e
+              comece o dia com um delicioso café da manhã mineiro.
+            </p>
+            <p>
+              Ah! Não deixe de conferir o mirante localizado na parte alta da
+              pousada! Perfeito para apreciar o pôr-do-sol com uma vista
+              panorâmica da Serra e do rio, ideal para momentos românticos
+              inesquecíveis.
+            </p>
+            <p>Estamos te esperando!</p>
+          </div>
+          <div className="col-span-6 w-auto relative">
+            <Image alt="" src="/image_4.jpg" fill />
+          </div>
         </div>
-        <Title>
-          <h1 className="font-gideonRoman">chalé de 1 quarto</h1>
-        </Title>
-
-        <NavMenu></NavMenu>
-        <Header backgroundImg="/rede.jpg">Acomodações</Header>
-        <br />
-        <Card image="/rede.jpg" title="Chalé de 1 quarto">
-          Chalé com varanda, vista para a serra, ar-condicionado, frigobar e
-          cozinha.
-        </Card>
-        <br />
-        <div className="w-full grid grid-cols-12 gap-5">
-          <div className="col-start-2 col-span-10 w-full grid grid-cols-3 grid-rows-2 grid-flow-col">
-            {images.map((image, index) => (
-              <div
-                key={index}
-                className="h-81 w-auto relative hover:cursor-pointer"
-              >
-                <Image
+        <div className="py-22 w-full">
+          <Title>Acomodações</Title>
+          <div className="text-center text-2xl mt-[3.3rem] mb-12">
+            <p>Aconchego, conforto e natureza!</p>
+            <p>Temos várias opções de chalés, de acordo com sua necessidade.</p>
+          </div>
+          <Card image="/rede.jpg" title="Chalé de 1 quarto">
+            Chalé com varanda, vista para a serra, ar-condicionado, frigobar e
+            cozinha.
+          </Card>
+        </div>
+        <div className="py-22 w-full">
+          <Title>Algumas fotos</Title>
+          <div className="text-2xl text-center my-12">
+            <p>Aconchego, conforto e natureza!</p>
+            <p>Temos várias opções de chalés, de acordo com sua necessidade.</p>
+          </div>
+          <div className="w-full grid grid-cols-12 gap-5">
+            <div className="col-start-2 col-span-10 w-full grid grid-cols-3 grid-rows-2 grid-flow-col">
+              {images.map((image, index) => (
+                <div
                   key={index}
-                  className="object-cover"
-                  src={image.src}
-                  alt={`Image ${index + 1}`}
-                  onClick={() => setIndex(index)}
-                  fill
-                />
-              </div>
-            ))}
+                  className="h-81 w-auto relative hover:cursor-pointer"
+                >
+                  <Image
+                    key={index}
+                    className="object-cover"
+                    src={image.src}
+                    alt={`Image ${index + 1}`}
+                    onClick={() => setIndex(index)}
+                    fill
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <Lightbox
@@ -129,8 +151,8 @@ export default function Home() {
           slides={images}
           render={{ slide: NextJsImage }}
         />
-        <Footer></Footer>
       </main>
+      <Footer></Footer>
     </>
   );
 }
