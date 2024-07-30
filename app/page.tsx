@@ -72,39 +72,47 @@ export default function Home() {
         id="content"
         className="flex min-h-screen flex-col items-center py-22"
       >
-        <Title>A pousada</Title>
-        <p className="text-2xl text-center mt-12">
-          Desfrute da tranquilidade e da beleza da Serra da Canastra na Pousada
-          Velho Chico.
-        </p>
-        <p className="text-2xl text-center">
-          Um refúgio cercado por belas árvores como pau-brasil, jacarandá e ipê,
-          a apenas 300 metros do Rio São Francisco.
-        </p>
-        <div className="grid grid-cols-12 gap-5 pt-12">
-          <div className="col-start-2 col-span-5 text-xl flex flex-col gap-y-8">
-            <p>
+        <div className="grid grid-cols-12">
+          <div className="col-start-2 col-span-10">
+            <Title>A pousada</Title>
+            <p className="text-2xl text-center mt-12">
+              Desfrute da tranquilidade e da beleza da Serra da Canastra na
+              Pousada Velho Chico.
+            </p>
+            <p className="text-2xl text-center">
+              Um refúgio cercado por belas árvores como pau-brasil, jacarandá e
+              ipê, a apenas 300 metros do Rio São Francisco.
+            </p>
+          </div>
+        </div>
+        <div className="grid grid-cols-12 gap-5 mt-12 bg-[#f2f2f2e6]">
+          <div className="col-start-2 col-span-5 text-xl flex flex-col gap-y-8 py-10">
+            <p className="">
               Aproveite as belas praias, piscinas naturais e corredeiras para
               relaxar, nadar e praticar bóia cross. Desfrute de vistas
-              deslumbrantes da Serra da Canastra, visíveis de toda a pousada,
-              especialmente das varandas dos chalés.
+              deslumbrantes da Serra da Canastra,{" "}
+              <b>
+                visíveis de toda a pousada, especialmente das varandas dos
+                chalés.
+              </b>
             </p>
             <p>
-              Viva a experiência autêntica de uma fazenda, tomando leite ao pé
-              da vaca, saboreando o famoso queijo canastra e passeando a cavalo.
-              Divirta-se no campo de futebol, explore com um guia turístico e
-              comece o dia com um delicioso café da manhã mineiro.
+              Viva a experiência <b>autêntica de uma fazenda</b>, tomando leite
+              ao pé da vaca, saboreando o famoso queijo canastra e passeando a
+              cavalo. Divirta-se no campo de futebol,
+              <b>explore com um guia turístico</b> e comece o dia com um
+              <b>delicioso café da manhã mineiro</b>.
             </p>
             <p>
-              Ah! Não deixe de conferir o mirante localizado na parte alta da
-              pousada! Perfeito para apreciar o pôr-do-sol com uma vista
+              Ah! Não deixe de conferir o <b>mirante</b> localizado na parte
+              alta da pousada! Perfeito para apreciar o pôr-do-sol com uma vista
               panorâmica da Serra e do rio, ideal para momentos românticos
               inesquecíveis.
             </p>
             <p>Estamos te esperando!</p>
           </div>
           <div className="col-span-6 w-auto relative">
-            <Image alt="" src="/image_4.jpg" fill />
+            <Image className="object-cover" alt="" src="/image_4.jpg" fill />
           </div>
         </div>
         <div className="py-22 w-full">
