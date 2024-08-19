@@ -2,7 +2,7 @@ import Title from "./Title";
 
 type IntroProps = {
     title: string;
-    children: React.ReactNode;
+    children?: React.ReactNode;
 };
 
 const Intro = ({ title, children }: IntroProps) => {
