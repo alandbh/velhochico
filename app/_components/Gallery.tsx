@@ -17,7 +17,7 @@ const Gallery = ({ slides }: GalleryProps) => {
 
     return (
         <div>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap items-center justify-center">
                 {slides.map((image, index) => (
                     <div
                         key={index}

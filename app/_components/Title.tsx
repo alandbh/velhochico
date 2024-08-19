@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 
 type TitleProps = {
     children: ReactNode;
-    className: string;
+    className?: string;
 };
 
 const Title = ({ children, className }: TitleProps) => {
