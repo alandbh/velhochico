@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="md:h-65 h-auto py-10 md:py-0 w-full bg-darkest-blue flex justify-between items-center text-white relative px-5 lg:px-20 mt-[5.5rem]">
             <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
 
-            <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5">
+            <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5 max-w-screen-xl mx-auto text-white/75">
                 <div className="flex flex-col gap-4 flex-1 items-center md:items-start text-center">
                     <div className="mb-5">
                         <IconLogo color="#ffffff" />
@@ -25,7 +25,10 @@ const Footer = () => {
                         <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
                     </p>
                     <p>
-                        <a href="mailto:contato@pousadavelhochico.com.br">
+                        <a
+                            className="hover:underline hover:text-white/100"
+                            href="mailto:contato@pousadavelhochico.com.br"
+                        >
                             contato@pousadavelhochico.com.br
                         </a>
                     </p>
@@ -37,19 +40,28 @@ const Footer = () => {
                         </h3>
                         <ul className="flex flex-col items-stretch self-center gap-3 content w-32">
                             <li>
-                                <a href="/#" className="flex gap-4">
+                                <a
+                                    href="/#"
+                                    className="flex gap-4 hover:underline hover:text-white/100"
+                                >
                                     <Facebook />
                                     Facebook
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex gap-4">
+                                <a
+                                    href="#"
+                                    className="flex gap-4 hover:underline hover:text-white/100"
+                                >
                                     <Twitter />
                                     Twitter
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="flex gap-4">
+                                <a
+                                    href="#"
+                                    className="flex gap-4 hover:underline hover:text-white/100"
+                                >
                                     <Instagram />
                                     Instagram
                                 </a>
@@ -62,7 +74,7 @@ const Footer = () => {
                         <p>
                             <a
                                 href=" https://wa.me/553799290110"
-                                className="flex items-center gap-4 text-2xl"
+                                className="flex items-center gap-4 text-2xl hover:underline hover:text-white/100"
                             >
                                 <IconWhatsapp color="#ffffff" />
                                 99929-0110
