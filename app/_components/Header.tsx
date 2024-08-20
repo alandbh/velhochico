@@ -31,7 +31,7 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                     <Hamburguer />
                 </button>
             </div>
-            <h1 className="text-white z-10 font-licorice text-9xl text-center flex items-center self-center h-97">
+            <h1 className="text-white z-10 font-licorice md:text-9xl text-6xl text-center flex items-center self-center h-97">
                 {children}
             </h1>
         </div>
