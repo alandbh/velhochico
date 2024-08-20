@@ -59,16 +59,16 @@ export default function Contato() {
                             </Content>
                         </Article>
 
-                        <div className="flex w-full justify-center gap-x-[10px]">
+                        <div className="flex w-full justify-center max-md:items-center gap-3 max-md:flex-col">
                             <Button
                                 text="ROTA PARA WAZE"
                                 icon={<Waze color="#27AE60" />}
-                                href="https://wa.me/553799290110"
+                                href="https://www.waze.com/en/live-map/directions/br/mg/pousada-velho-chico?place=ChIJgwC0pT1MsZQRfilMKgLNysw"
                             />
                             <Button
                                 text="ROTA PARA GOOGLE MAPS"
                                 icon={<IconGoogleMaps color="#27AE60" />}
-                                href="https://wa.me/553799290110"
+                                href="https://maps.app.goo.gl/8Ue5T1nusoymfQMf7"
                             />
                         </div>
                     </div>
