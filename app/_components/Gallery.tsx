@@ -17,22 +17,36 @@ const Gallery = ({ slides }: GalleryProps) => {
 
     return (
         <div>
-            <div className="flex flex-wrap items-center justify-center">
+            <div className="grid grid-cols-3">
                 {slides.map((image, index) => (
-                    <div
+                    <Image
                         key={index}
-                        className="xl:size-80 lg:size-64 md:size-56 sm:size-40 size-32 relative hover:cursor-pointer"
-                    >
-                        <Image
-                            key={index}
-                            className="object-cover"
-                            src={image.src}
-                            alt={`Image ${index + 1}`}
-                            onClick={() => setIndex(index)}
-                            fill
-                        />
-                    </div>
+                        className="object-cover aspect-square cursor-pointer"
+                        src={image.src}
+                        alt={`Image ${index + 1}`}
+                        onClick={() => setIndex(index)}
+                        width={3000}
+                        height={3000}
+                        role="button"
+                        aria-label="Expandir imagem"
+                    />
                 ))}
+                <Image
+                    className="object-cover aspect-square"
+                    src={slides[0].src}
+                    alt={`Image ${index + 1}`}
+                    onClick={() => setIndex(index)}
+                    width={3000}
+                    height={3000}
+                />
+                <Image
+                    className="object-cover aspect-square"
+                    src={slides[1].src}
+                    alt={`Image ${index + 1}`}
+                    onClick={() => setIndex(index)}
+                    width={3000}
+                    height={3000}
+                />
             </div>
             <Lightbox
                 index={index}
