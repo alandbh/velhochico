@@ -52,7 +52,10 @@ export default function Atrativos() {
                 />
             </div>
             <div className="w-full grid grid-cols-12 gap-5 mb-11 bg-gray-6 pt-12">
-                <div className="col-start-2 col-span-4 gap-y-10 flex flex-col">
+                <div
+                    style={{ gridColumnStart: 2 }}
+                    className="lg:col-span-4 col-span-10 gap-y-10 flex flex-col"
+                >
                     <h1 className="text-4xl">Aventuras inesqueciveis</h1>
                     <p className="text-xl leading-relaxed">
                         Sinta a adrenalina com atividades radicais como
@@ -62,8 +65,8 @@ export default function Atrativos() {
                         natureza de perto.
                     </p>
                 </div>
-                <div className="col-span-6 relative">
-                    <div className="md:h-[527px] md:w-[661px] relative">
+                <div className="col-span-9 lg:col-span-4 col-start-3 relative">
+                    <div className="w-[430px] h-[368px] md:h-[527px] md:w-[661px] relative">
                         <Image alt="" src="/img-atrativos.png" fill />
                     </div>
                 </div>
