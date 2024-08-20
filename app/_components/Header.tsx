@@ -12,7 +12,7 @@ type HeaderProps = {
 
 const Header = ({ children, backgroundImg }: HeaderProps) => {
     return (
-        <div className="before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative h-97 w-full flex flex-col">
+        <div className="before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative h-97 w-full flex flex-col mb-8">
             <Image
                 alt=""
                 src={backgroundImg}

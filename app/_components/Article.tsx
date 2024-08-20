@@ -4,7 +4,7 @@ type ArticleProps = {
 
 const Article = ({ children }: ArticleProps) => {
     return (
-        <article className="flex flex-col col-span-10 gap-12 text-darkest-blue">
+        <article className="flex flex-col col-span-10 md:gap-12 gap-4 text-darkest-blue">
             {children}
         </article>
     );

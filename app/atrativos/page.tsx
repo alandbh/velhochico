@@ -31,7 +31,7 @@ export default function Atrativos() {
                             da Serra da Canastra.
                         </p>
                     </Intro>
-                    <div className="col-span-10 flex flex-col gap-12 pb-22">
+                    <div className="col-span-10 flex flex-col gap-12 md:pb-22 pb-10">
                         <div className="flex items-center justify-center">
                             <Button
                                 text="reserve já"
@@ -43,7 +43,7 @@ export default function Atrativos() {
                     </div>
                 </div>
             </main>
-            <div className="relative h-[37.25rem] w-full mt-12">
+            <div className="relative h-60 md:h-[37.25rem] w-full mt-12 text-darkest-blue">
                 <Image
                     className="object-cover object-top"
                     alt=""
@@ -51,7 +51,7 @@ export default function Atrativos() {
                     fill
                 />
             </div>
-            <div className=" mb-11 bg-gray-6 pt-12 ">
+            <div className=" mb-11 bg-gray-6 pt-12 text-darker-blue">
                 <div className="w-full grid grid-cols-12 gap-5 max-w-screen-xl mx-auto">
                     <div
                         style={{ gridColumnStart: 2 }}
@@ -66,7 +66,7 @@ export default function Atrativos() {
                             cavalo, vivenciando a natureza de perto.
                         </p>
                     </div>
-                    <div className="col-span-9 lg:col-span-7 col-start-1 relative">
+                    <div className="col-span-9 lg:col-span-7 col-start-2 relative">
                         <div className="w-full max-w-[600px] relative">
                             <Image
                                 className="object-fill"

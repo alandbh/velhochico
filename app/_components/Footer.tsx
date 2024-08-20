@@ -11,11 +11,16 @@ const Footer = () => {
             <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
 
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5">
-                <div className="flex flex-col gap-3 flex-1 items-center md:items-start">
+                <div className="flex flex-col gap-4 flex-1 items-center md:items-start text-center">
                     <div className="mb-5">
                         <IconLogo color="#ffffff" />
                     </div>
-                    <p>Estrada Vargem Bonita / Casca DÁnta, km 05.</p>
+                    <p>
+                        Estrada Vargem Bonita a{" "}
+                        <span className="whitespace-nowrap">
+                            Casca D'Anta, km 05.
+                        </span>
+                    </p>
                     <p>
                         <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
                     </p>
