@@ -21,7 +21,7 @@ const Gallery = ({ slides }: GalleryProps) => {
                 {slides.map((image, index) => (
                     <div
                         key={index}
-                        className="size-80 relative hover:cursor-pointer"
+                        className="xl:size-80 lg:size-64 md:size-56 sm:size-40 size-32 relative hover:cursor-pointer"
                     >
                         <Image
                             key={index}
