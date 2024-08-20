@@ -51,7 +51,7 @@ export default function Atrativos() {
                     fill
                 />
             </div>
-            <div className="w-full grid grid-cols-12 gap-5 mb-[7.625rem] bg-gray-6 pt-12">
+            <div className="w-full grid grid-cols-12 gap-5 mb-11 bg-gray-6 pt-12">
                 <div className="col-start-2 col-span-4 gap-y-10 flex flex-col">
                     <h1 className="text-4xl">Aventuras inesqueciveis</h1>
                     <p className="text-xl leading-relaxed">
