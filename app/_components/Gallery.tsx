@@ -21,7 +21,7 @@ const Gallery = ({ slides }: GalleryProps) => {
                 {slides.map((image, index) => (
                     <Image
                         key={index}
-                        className="object-cover aspect-square cursor-pointer"
+                        className="object-cover aspect-square cursor-pointer transition-all brightness-90 hover:brightness-125 hover:ring-slate-400/50 hover:ring-1 hover:ring-offset-slate-50 hover:ring-offset-8 hover:shadow-2xl hover:z-50"
                         src={image.src}
                         alt={`Image ${index + 1}`}
                         onClick={() => setIndex(index)}
@@ -31,22 +31,6 @@ const Gallery = ({ slides }: GalleryProps) => {
                         aria-label="Expandir imagem"
                     />
                 ))}
-                <Image
-                    className="object-cover aspect-square"
-                    src={slides[0].src}
-                    alt={`Image ${index + 1}`}
-                    onClick={() => setIndex(index)}
-                    width={3000}
-                    height={3000}
-                />
-                <Image
-                    className="object-cover aspect-square"
-                    src={slides[1].src}
-                    alt={`Image ${index + 1}`}
-                    onClick={() => setIndex(index)}
-                    width={3000}
-                    height={3000}
-                />
             </div>
             <Lightbox
                 index={index}
