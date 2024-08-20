@@ -6,64 +6,68 @@ import Instagram from "./icons/Instagram";
 import IconWhatsapp from "./icons/Whatsapp";
 
 const Footer = () => {
-  return (
-    <div className="h-65 w-full bg-darkest-blue flex justify-between items-center text-white relative px-20 mt-[5.5rem]">
-      <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
-      <ul>
-        <li className="mb-5">
-          <IconLogo color="#ffffff" />
-        </li>
-        <li>Estrada Vargem Bonita / Casca DÁnta, km 05.</li>
-        <li>
-          {" "}
-          <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
-        </li>
-        <li>
-          <a href="mailto:contato@pousadavelhochico.com.br">
-            contato@pousadavelhochico.com.br
-          </a>
-        </li>
-      </ul>
-      <ul className="flex flex-col self-center gap-y-[1.25rem] content">
-        <li>
-          <a href="/#" className="flex">
-            <span className="mr-[38px]">
-              <Facebook />
-            </span>
-            Facebook
-          </a>
-        </li>
-        <li>
-          <a href="#" className="flex">
-            <span className="mr-7">
-              <Twitter />
-            </span>
-            Twitter
-          </a>
-        </li>
-        <li>
-          <a href="#" className="flex">
-            <span className="mr-7">
-              <Instagram />
-            </span>
-            Instagram
-          </a>
-        </li>
-      </ul>
-      <ul className="text-2xl">
-        <li>Reservas</li>
-        <li>
-          <a
-            href=" https://wa.me/553799290110"
-            className="flex items-center gap-x-2"
-          >
-            <IconWhatsapp color="#ffffff" />
-            99929-0110
-          </a>
-        </li>
-      </ul>
-    </div>
-  );
+    return (
+        <div className="md:h-65 h-auto py-10 md:py-0 w-full bg-darkest-blue flex justify-between items-center text-white relative px-5 lg:px-20 mt-[5.5rem]">
+            <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
+
+            <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5">
+                <div className="flex flex-col gap-3 flex-1 items-center md:items-start">
+                    <div className="mb-5">
+                        <IconLogo color="#ffffff" />
+                    </div>
+                    <p>Estrada Vargem Bonita / Casca DÁnta, km 05.</p>
+                    <p>
+                        <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
+                    </p>
+                    <p>
+                        <a href="mailto:contato@pousadavelhochico.com.br">
+                            contato@pousadavelhochico.com.br
+                        </a>
+                    </p>
+                </div>
+                <div className="flex justify-between flex-1 flex-col-reverse md:flex-row gap-5">
+                    <div className="pt-20 flex flex-col items-center md:items-start">
+                        <h3 className="sr-only">
+                            Siga-nos em nossas redes sociais
+                        </h3>
+                        <ul className="flex flex-col items-stretch self-center gap-3 content w-32">
+                            <li>
+                                <a href="/#" className="flex gap-4">
+                                    <Facebook />
+                                    Facebook
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex gap-4">
+                                    <Twitter />
+                                    Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" className="flex gap-4">
+                                    <Instagram />
+                                    Instagram
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div className="pt-20 flex flex-col items-center md:items-start">
+                        <h3 className="text-2xl mb-5">Reservas</h3>
+                        <p>
+                            <a
+                                href=" https://wa.me/553799290110"
+                                className="flex items-center gap-4 text-2xl"
+                            >
+                                <IconWhatsapp color="#ffffff" />
+                                99929-0110
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Footer;
