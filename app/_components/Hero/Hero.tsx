@@ -30,7 +30,7 @@ const Hero = () => {
             return;
         }
         setCurrentImage(currentImage + 1);
-    }, 10 * 1000);
+    }, 15 * 1000);
 
     const fade = {
         out: {
@@ -80,15 +80,46 @@ const Hero = () => {
                         <NavMenu />
                     </div>
                 </div>
-                <div className="text-white z-10 w-full">
-                    <p className="text-[2rem]">Conheça os encantos da</p>
-                    <h1 className="text-white z-10 font-licorice text-9xl text-center flex items-center self-center">
-                        Serra da Canastra
-                    </h1>
-                    <p className="z-10 w-[30rem]">
-                        Na <b>Pousada Velho Chico</b>, você encontra natureza,
-                        comida boa, queijos deliciosos e muito mais!
-                    </p>
+                <div className="relative flex flex-1 items-center">
+                    <div
+                        className={`text-white absolute z-10 w-full ${
+                            currentImage === 1
+                                ? styles.letteringIn
+                                : styles.letteringOut
+                        }`}
+                    >
+                        <div className="flex flex-col gap-5">
+                            <p className="text-[2rem]">Pousada</p>
+                            <h1 className="text-white z-10 font-licorice text-9xl">
+                                Velho Chico
+                            </h1>
+                            <p className="z-10 w-[30rem]">
+                                Aqui você encontra natureza, comida boa, queijos
+                                deliciosos e muito mais!
+                            </p>
+                        </div>
+                    </div>
+                    <div
+                        className={`text-white absolute z-10 w-full ${
+                            currentImage === 0
+                                ? styles.letteringIn
+                                : styles.letteringOut
+                        }`}
+                    >
+                        <div className="flex flex-col gap-5">
+                            <p className="text-[2rem]">
+                                Conheça os encantos da
+                            </p>
+                            <h1 className="text-white z-10 font-licorice text-9xl">
+                                Serra da Canastra
+                            </h1>
+                            <p className="z-10 w-[30rem]">
+                                Na <b>Pousada Velho Chico</b>, você encontra
+                                natureza, comida boa, queijos deliciosos e muito
+                                mais!
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div className="z-20 flex justify-center items-center flex-col gap-10 mb-10">
                     <Button

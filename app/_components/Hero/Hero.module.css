@@ -5,6 +5,14 @@
     animation: Netflix 30s ease-in-out 0s infinite;
 }
 
+.letteringIn {
+    animation: LetteringIn 2s ease-in-out 0s 1 forwards;
+}
+
+.letteringOut {
+    animation: LetteringOut 1s ease-in-out 0s 1 forwards;
+}
+
 @keyframes Netflix {
     0% {
         translate: 10%;
@@ -19,5 +27,45 @@
     100% {
         translate: 10%;
         scale: 1.2;
+    }
+}
+
+@keyframes LetteringIn {
+    0% {
+        translate: -10%;
+        opacity: 0;
+        display: none;
+    }
+    1% {
+        translate: -10%;
+        opacity: 0;
+        display: block;
+    }
+    50% {
+        translate: -10%;
+        opacity: 0;
+        display: block;
+    }
+
+    100% {
+        translate: 0%;
+        opacity: 1;
+        display: block;
+    }
+}
+@keyframes LetteringOut {
+    0% {
+        translate: 0%;
+        opacity: 1;
+    }
+    99% {
+        translate: -10%;
+        opacity: 0;
+    }
+
+    100% {
+        translate: -10%;
+        opacity: 0;
+        display: none;
     }
 }
