@@ -24,33 +24,53 @@ const Hero = () => {
     const [currentImage, setCurrentImage] = useState<number>(1);
 
     setTimeout(() => {
-        if (currentImage === images.length) {
-            setCurrentImage(1);
+        if (currentImage === images.length - 1) {
+            setCurrentImage(0);
 
             return;
         }
-
         setCurrentImage(currentImage + 1);
-    }, 15 * 1000);
+    }, 10 * 1000);
+
+    const fade = {
+        out: {
+            opacity: 0,
+        },
+        in: {
+            opacity: 1,
+        },
+    };
 
     return (
         <header className="flex flex-col h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
-            <Image
-                alt=""
-                src={images[0].scr}
-                quality={100}
-                fill
-                className={`object-cover object-center ${styles.images} ${styles.delay1}`}
-                data-slide="1"
-            />
-            <Image
-                alt=""
-                src={images[1].scr}
-                quality={100}
-                fill
-                className={`object-cover object-center ${styles.images}`}
-                data-slide="1"
-            />
+            <div className={styles.currentImage1}>
+                <Image
+                    alt=""
+                    src={images[1].scr}
+                    quality={100}
+                    fill
+                    className={`object-cover object-center ${styles.images} `}
+                    data-slide="0"
+                />
+                <Image
+                    alt=""
+                    src={images[0].scr}
+                    quality={100}
+                    fill
+                    style={currentImage === 1 ? fade.out : fade.in}
+                    className={`object-cover  object-center ${styles.images} `}
+                    data-slide="0"
+                />
+                <Image
+                    alt=""
+                    src={images[1].scr}
+                    quality={100}
+                    fill
+                    style={currentImage === 1 ? fade.in : fade.out}
+                    className={`object-cover object-center ${styles.images} `}
+                    data-slide="0"
+                />
+            </div>
             <div className="w-full max-w-screen-xl mx-auto z-10 flex flex-col h-full justify-between">
                 <div className="flex justify-between h-fit items-center z-10">
                     <div className="">
@@ -63,7 +83,7 @@ const Hero = () => {
                 <div className="text-white z-10 w-full">
                     <p className="text-[2rem]">Conheça os encantos da</p>
                     <h1 className="text-white z-10 font-licorice text-9xl text-center flex items-center self-center">
-                        Serra da Canastra {currentImage}
+                        Serra da Canastra
                     </h1>
                     <p className="z-10 w-[30rem]">
                         Na <b>Pousada Velho Chico</b>, você encontra natureza,
@@ -87,3 +107,50 @@ const Hero = () => {
 };
 
 export default Hero;
+
+function Slide() {
+    const [currentImage, setCurrentImage] = useState<number>(1);
+    const [previousImage, setPreviousImage] = useState<number>(0);
+    const [animateClass, setAnimateClass] = useState<string>("");
+
+    setTimeout(() => {
+        if (currentImage === images.length - 1) {
+            setAnimateClass("");
+            setPreviousImage(currentImage);
+            setCurrentImage(0);
+            setAnimateClass(styles.animate);
+
+            return;
+        }
+        setAnimateClass("");
+        setPreviousImage(currentImage);
+        setCurrentImage(currentImage + 1);
+        setAnimateClass(styles.animate);
+    }, 5 * 1000);
+
+    if (currentImage === 0) {
+        return (
+            <Image
+                alt=""
+                src={images[currentImage].scr}
+                quality={100}
+                fill
+                className={`object-cover transition-all object-center ${styles.images} ${styles.animate}`}
+                data-slide="0"
+            />
+        );
+    }
+
+    return (
+        <>
+            <Image
+                alt=""
+                src={images[currentImage].scr}
+                quality={100}
+                fill
+                className={`object-cover transition-all object-center ${styles.images} ${styles.animate}`}
+                data-slide="1"
+            />
+        </>
+    );
+}

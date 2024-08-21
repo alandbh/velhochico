@@ -1,31 +1,23 @@
 .images {
     translate: 10%;
     scale: 1.2;
-}
-
-.delay1 {
-    animation: Netflix 16s ease-in-out 0s 1 forwards;
-    z-index: 2;
-}
-.delay2 {
-    animation: Netflix 16s ease-in-out 15s 1 forwards;
-    z-index: 1;
+    transition: all 2s;
+    animation: Netflix 30s ease-in-out 0s infinite;
 }
 
 @keyframes Netflix {
     0% {
         translate: 10%;
         scale: 1.2;
-        opacity: 1;
     }
-    80% {
+
+    50% {
         translate: 0%;
         scale: 1;
-        opacity: 1;
     }
+
     100% {
-        translate: 0%;
-        scale: 1;
-        opacity: 0;
+        translate: 10%;
+        scale: 1.2;
     }
 }
