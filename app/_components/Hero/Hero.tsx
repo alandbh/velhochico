@@ -71,7 +71,7 @@ const Hero = () => {
                     data-slide="0"
                 />
             </div>
-            <div className="w-full max-w-screen-xl mx-auto z-10 flex flex-col h-full justify-between">
+            <div className="w-full max-w-screen-lg mx-auto z-10 flex flex-col h-full justify-between">
                 <div className="flex justify-between h-fit items-center z-10">
                     <div className="">
                         <LogoLink href="/"></LogoLink>
