@@ -8,6 +8,7 @@ import "yet-another-react-lightbox/styles.css";
 import Hero from "./_components/Hero/Hero";
 import fetchData from "./lib/fetchData";
 import { QUERY_HERO_DATA } from "./lib/queries";
+import Intro from "./_components/Intro";
 
 const images = [
     { src: "/arvore.png" },
@@ -19,8 +20,11 @@ const images = [
 ];
 
 export default async function Home() {
-    // const [index, setIndex] = React.useState(-1);
-
+    /**
+     *
+     * Fetching Hero data from API
+     * --------------------------------
+     */
     const heroDataJson = await fetchData<any>(QUERY_HERO_DATA);
 
     const heroData = [
@@ -40,27 +44,54 @@ export default async function Home() {
         },
     ];
 
+    /**
+     *
+     * Fetching rooms data from API
+     * --------------------------------
+     */
+
+    const rooms = [
+        {
+            title: "Chalé de 1 quarto",
+            intro: "Chalé com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
+            url: "/chale-1-quarto",
+            thumbnail: "/rede.jpg",
+        },
+        {
+            title: "Chalé de 2 quartos",
+            intro: "Chalé de 2 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
+            url: "/chale-2-quartos",
+            thumbnail: "/chale.jpg",
+        },
+        {
+            title: "Chalé de 3 quarto",
+            intro: "Chalé de 3 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
+            url: "/chale-3-quartos",
+            thumbnail: "/ceu.png",
+        },
+    ];
+
     return (
         <>
             <Hero data={heroData} />
-            <main
-                id="content"
-                className="flex min-h-screen flex-col items-center py-22"
-            >
-                <div className="grid grid-cols-12">
-                    <div className="col-start-2 col-span-10">
-                        <Title>A pousada</Title>
-                        <p className="text-2xl text-center mt-12">
-                            Desfrute da tranquilidade e da beleza da Serra da
-                            Canastra na Pousada Velho Chico.
-                        </p>
-                        <p className="text-2xl text-center">
-                            Um refúgio cercado por belas árvores como
-                            pau-brasil, jacarandá e ipê, a apenas 300 metros do
-                            Rio São Francisco.
-                        </p>
-                    </div>
-                </div>
+            <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
+                <section className="col-span-10 grid grid-cols-10 col-start-2">
+                    <Intro title="A pousada">
+                        <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
+                            <p>
+                                Desfrute da tranquilidade e da beleza da Serra
+                                da Canastra na Pousada Velho Chico.
+                            </p>
+                            <p>
+                                Um refúgio cercado por belas árvores como
+                                pau-brasil, jacarandá e ipê, a apenas 300 metros
+                                do Rio São Francisco.
+                            </p>
+                        </div>
+                    </Intro>
+                </section>
+            </main>
+            <section>
                 <div className="grid grid-cols-12 gap-5 mt-12 bg-[#f2f2f2e6]">
                     <div className="col-start-2 col-span-5 text-xl flex flex-col gap-y-8 py-10">
                         <p className="">
@@ -100,6 +131,35 @@ export default async function Home() {
                         />
                     </div>
                 </div>
+            </section>
+
+            <section>
+                <Intro title="Acomodações">
+                    <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
+                        <p>
+                            Aconchego, conforto e natureza! <br />
+                            Temos várias opções de chalés, de acordo com sua
+                            necessidade.
+                        </p>
+                    </div>
+                </Intro>
+                <div className="flex flex-col gap-10">
+                    {rooms.map((room, index) => (
+                        <Card
+                            key={index}
+                            image={room.thumbnail}
+                            title={room.title}
+                            url={room.url}
+                        >
+                            {room.intro}
+                        </Card>
+                    ))}
+                </div>
+            </section>
+            <main
+                id="content"
+                className="flex min-h-screen flex-col items-center py-22"
+            >
                 <div className="py-22 w-full">
                     <Title>Acomodações</Title>
                     <div className="text-center text-2xl mt-[3.3rem] mb-12">
@@ -109,7 +169,7 @@ export default async function Home() {
                             necessidade.
                         </p>
                     </div>
-                    <Card image="/rede.jpg" title="Chalé de 1 quarto">
+                    <Card url="www" image="/rede.jpg" title="Chalé de 1 quarto">
                         Chalé com varanda, vista para a serra, ar-condicionado,
                         frigobar e cozinha.
                     </Card>
