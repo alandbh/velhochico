@@ -169,10 +169,10 @@ export default async function Home() {
                             necessidade.
                         </p>
                     </div>
-                    <Card url="www" image="/rede.jpg" title="Chalé de 1 quarto">
+                    {/* <Card url="www" image="/rede.jpg" title="Chalé de 1 quarto">
                         Chalé com varanda, vista para a serra, ar-condicionado,
                         frigobar e cozinha.
-                    </Card>
+                    </Card> */}
                 </div>
                 <div className="py-22 w-full">
                     <Title>Algumas fotos</Title>

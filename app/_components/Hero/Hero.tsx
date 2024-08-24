@@ -70,7 +70,7 @@ const Hero = ({ data }: HeroProps) => {
             <div className="w-full max-w-screen-lg mx-auto z-10 flex flex-col h-full justify-between">
                 <div className="flex md:justify-between justify-center h-fit items-center z-10 relative">
                     <LogoLink href="/" />
-                    <button className="absolute top-2 right-3 p-1">
+                    <button className="absolute top-2 right-3 p-1 md:hidden">
                         <Hamburguer height={32} width={32} />
                     </button>
                     <NavMenu />
