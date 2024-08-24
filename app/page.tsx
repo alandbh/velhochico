@@ -6,6 +6,8 @@ import Card from "./_components/Card";
 import Footer from "./_components/Footer";
 import "yet-another-react-lightbox/styles.css";
 import Hero from "./_components/Hero/Hero";
+import fetchData from "./lib/fetchData";
+import { QUERY_HERO_DATA } from "./lib/queries";
 
 const images = [
     { src: "/arvore.png" },
@@ -19,66 +21,22 @@ const images = [
 export default async function Home() {
     // const [index, setIndex] = React.useState(-1);
 
-    const heroDataRaw = await fetch(
-        "https://apivelhochico.alanvasconcelos.net/index.php?graphql",
-        {
-            method: "POST",
-
-            headers: {
-                "Content-Type": "application/json",
-            },
-
-            body: JSON.stringify({
-                query: `{
-                pages(where: {title: "Home"}) {
-                  nodes {
-                    title
-                    conteudoPaginaInicial {
-                      banner {
-                        chamada
-                        imagemDeFundo {
-                          node {
-                            sizes
-                            sourceUrl
-                            uri
-                          }
-                        }
-                      }
-                      banner2 {
-                        chamada
-                        imagemDeFundo {
-                          node {
-                            sizes
-                            sourceUrl
-                            uri
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }`,
-            }),
-            cache: "force-cache",
-        }
-    );
-
-    const heroDataJson = await heroDataRaw.json();
+    const heroDataJson = await fetchData<any>(QUERY_HERO_DATA);
 
     const heroData = [
         {
             content:
-                heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner
+                heroDataJson.pages.nodes[0].conteudoPaginaInicial.banner
                     .chamada,
-            image: heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner
+            image: heroDataJson.pages.nodes[0].conteudoPaginaInicial.banner
                 .imagemDeFundo.node.sourceUrl,
         },
         {
             content:
-                heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner2
+                heroDataJson.pages.nodes[0].conteudoPaginaInicial.banner2
                     .chamada,
-            image: heroDataJson.data.pages.nodes[0].conteudoPaginaInicial
-                .banner2.imagemDeFundo?.node.sourceUrl,
+            image: heroDataJson.pages.nodes[0].conteudoPaginaInicial.banner2
+                .imagemDeFundo?.node.sourceUrl,
         },
     ];
 

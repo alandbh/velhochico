@@ -22,7 +22,7 @@ const Hero = ({ data }: HeroProps) => {
 
     console.log("ola", data);
 
-    if (data[1].content) {
+    if (data[1].image && data[1].content) {
         setTimeout(() => {
             if (currentImage === data.length - 1) {
                 setCurrentImage(0);
@@ -54,7 +54,7 @@ const Hero = ({ data }: HeroProps) => {
                     className={`object-cover  object-center ${styles.images} `}
                     data-slide="0"
                 />
-                {data[1].content && (
+                {data[1].content && data[1].image && (
                     <Image
                         alt=""
                         src={data[1].image}
