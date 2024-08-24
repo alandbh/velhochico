@@ -82,7 +82,7 @@
 .lettering p:first-child,
 .lettering p:last-child {
     font-family: var(--font-lora);
-    max-width: 400px;
+    max-width: 500px;
 }
 
 .lettering p:first-child {

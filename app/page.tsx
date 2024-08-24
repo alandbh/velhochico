@@ -59,12 +59,28 @@ export default async function Home() {
                 }
               }`,
             }),
+            cache: "force-cache",
         }
     );
 
-    const heroData = await heroDataRaw.json();
+    const heroDataJson = await heroDataRaw.json();
 
-    console.log("olaaaa", heroData);
+    const heroData = [
+        {
+            content:
+                heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner
+                    .chamada,
+            image: heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner
+                .imagemDeFundo.node.sourceUrl,
+        },
+        {
+            content:
+                heroDataJson.data.pages.nodes[0].conteudoPaginaInicial.banner2
+                    .chamada,
+            image: heroDataJson.data.pages.nodes[0].conteudoPaginaInicial
+                .banner2.imagemDeFundo?.node.sourceUrl,
+        },
+    ];
 
     return (
         <>
