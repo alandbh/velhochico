@@ -8,8 +8,22 @@ import IconWhatsapp from "../icons/Whatsapp";
 import Link from "next/link";
 import Arrow from "../icons/Arrow";
 
-// import { Container } from './styles';
 import styles from "./Hero.module.css";
+
+const banners = [
+    {
+        image: `https:\/\/apivelhochico.alanvasconcelos.net\/wp-content\/uploads\/2024\/06\/imagemdefundo.jpg`,
+        content: {
+            __html: `<p>Conheça os encantos da<\/p>\n<p>Serra da Canastra<\/p>\n<p>Na <strong>Pousada Velho Chico<\/strong>, você encontra natureza, comida boa, queijos deliciosos e muito mais!<\/p>\n`,
+        },
+    },
+    {
+        image: `https:\/\/apivelhochico.alanvasconcelos.net\/wp-content\/uploads\/2024\/08\/fusca.jpg`,
+        content: {
+            __html: `<p>Tenha uma experiência inesquecível na<\/p>\n<p>Pousada Velho Chico<\/p>\n<p>Na <strong>Pousada Velho Chico<\/strong>, você encontra natureza, comida boa, queijos deliciosos e muito mais!<\/p>\n`,
+        },
+    },
+];
 
 const images = [
     {
@@ -20,8 +34,10 @@ const images = [
     },
 ];
 
-const Hero = () => {
+const Hero = ({ data }: any) => {
     const [currentImage, setCurrentImage] = useState<number>(1);
+
+    console.log("ola", data);
 
     setTimeout(() => {
         if (currentImage === images.length - 1) {
@@ -46,15 +62,7 @@ const Hero = () => {
             <div className={styles.currentImage1}>
                 <Image
                     alt=""
-                    src={images[1].scr}
-                    quality={100}
-                    fill
-                    className={`object-cover object-center ${styles.images} `}
-                    data-slide="0"
-                />
-                <Image
-                    alt=""
-                    src={images[0].scr}
+                    src={banners[0].image}
                     quality={100}
                     fill
                     style={currentImage === 1 ? fade.out : fade.in}
@@ -63,7 +71,7 @@ const Hero = () => {
                 />
                 <Image
                     alt=""
-                    src={images[1].scr}
+                    src={banners[1].image}
                     quality={100}
                     fill
                     style={currentImage === 1 ? fade.in : fade.out}
@@ -107,17 +115,10 @@ const Hero = () => {
                         }`}
                     >
                         <div className="flex flex-col gap-5">
-                            <p className="text-[2rem]">
-                                Conheça os encantos da
-                            </p>
-                            <h1 className="text-white z-10 font-licorice text-9xl">
-                                Serra da Canastra
-                            </h1>
-                            <p className="z-10 w-[30rem]">
-                                Na <b>Pousada Velho Chico</b>, você encontra
-                                natureza, comida boa, queijos deliciosos e muito
-                                mais!
-                            </p>
+                            <div
+                                className={styles.lettering}
+                                dangerouslySetInnerHTML={banners[0].content}
+                            ></div>
                         </div>
                     </div>
                 </div>
@@ -138,50 +139,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
-function Slide() {
-    const [currentImage, setCurrentImage] = useState<number>(1);
-    const [previousImage, setPreviousImage] = useState<number>(0);
-    const [animateClass, setAnimateClass] = useState<string>("");
-
-    setTimeout(() => {
-        if (currentImage === images.length - 1) {
-            setAnimateClass("");
-            setPreviousImage(currentImage);
-            setCurrentImage(0);
-            setAnimateClass(styles.animate);
-
-            return;
-        }
-        setAnimateClass("");
-        setPreviousImage(currentImage);
-        setCurrentImage(currentImage + 1);
-        setAnimateClass(styles.animate);
-    }, 5 * 1000);
-
-    if (currentImage === 0) {
-        return (
-            <Image
-                alt=""
-                src={images[currentImage].scr}
-                quality={100}
-                fill
-                className={`object-cover transition-all object-center ${styles.images} ${styles.animate}`}
-                data-slide="0"
-            />
-        );
-    }
-
-    return (
-        <>
-            <Image
-                alt=""
-                src={images[currentImage].scr}
-                quality={100}
-                fill
-                className={`object-cover transition-all object-center ${styles.images} ${styles.animate}`}
-                data-slide="1"
-            />
-        </>
-    );
-}

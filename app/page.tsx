@@ -1,18 +1,10 @@
-"use client";
+"use server";
 import * as React from "react";
 import Image from "next/image";
-import LogoLink from "./_components/LogoLink";
-import Button from "./_components/Button";
-import IconWhatsapp from "./_components/icons/Whatsapp";
 import Title from "./_components/Title";
-import NavMenu from "./_components/NavMenu";
 import Card from "./_components/Card";
 import Footer from "./_components/Footer";
-import NextJsImage from "./_components/LightBox";
-import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import Arrow from "./_components/icons/Arrow";
-import Link from "next/link";
 import Hero from "./_components/Hero/Hero";
 
 const images = [
@@ -24,11 +16,59 @@ const images = [
     { src: "/chale.jpg" },
 ];
 
-export default function Home() {
-    const [index, setIndex] = React.useState(-1);
+export default async function Home() {
+    // const [index, setIndex] = React.useState(-1);
+
+    const heroDataRaw = await fetch(
+        "https://apivelhochico.alanvasconcelos.net/index.php?graphql",
+        {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json",
+            },
+
+            body: JSON.stringify({
+                query: `{
+                pages(where: {title: "Home"}) {
+                  nodes {
+                    title
+                    conteudoPaginaInicial {
+                      banner {
+                        chamada
+                        imagemDeFundo {
+                          node {
+                            sizes
+                            sourceUrl
+                            uri
+                          }
+                        }
+                      }
+                      banner2 {
+                        chamada
+                        imagemDeFundo {
+                          node {
+                            sizes
+                            sourceUrl
+                            uri
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }`,
+            }),
+        }
+    );
+
+    const heroData = await heroDataRaw.json();
+
+    console.log("olaaaa", heroData);
+
     return (
         <>
-            <Hero />
+            <Hero data={heroData} />
             <main
                 id="content"
                 className="flex min-h-screen flex-col items-center py-22"
@@ -116,26 +156,26 @@ export default function Home() {
                                     key={index}
                                     className="h-81 w-auto relative hover:cursor-pointer"
                                 >
-                                    <Image
+                                    {/* <Image
                                         key={index}
                                         className="object-cover"
                                         src={image.src}
                                         alt={`Image ${index + 1}`}
                                         onClick={() => setIndex(index)}
                                         fill
-                                    />
+                                    /> */}
                                 </div>
                             ))}
                         </div>
                     </div>
                 </div>
-                <Lightbox
+                {/* <Lightbox
                     index={index}
                     open={index >= 0}
                     close={() => setIndex(-1)}
                     slides={images}
                     render={{ slide: NextJsImage }}
-                />
+                /> */}
             </main>
             <Footer></Footer>
         </>

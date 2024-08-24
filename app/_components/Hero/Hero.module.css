@@ -69,3 +69,25 @@
         display: none;
     }
 }
+
+.lettering {
+}
+
+.lettering h1,
+.lettering p {
+    font-size: 6rem;
+    font-family: var(--font-licorice);
+}
+
+.lettering p:first-child,
+.lettering p:last-child {
+    font-family: var(--font-lora);
+    max-width: 400px;
+}
+
+.lettering p:first-child {
+    font-size: 2rem;
+}
+.lettering p:last-child {
+    font-size: 1rem;
+}
