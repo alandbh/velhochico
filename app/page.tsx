@@ -9,6 +9,8 @@ import Hero from "./_components/Hero/Hero";
 import fetchData from "./lib/fetchData";
 import { QUERY_HERO_DATA } from "./lib/queries";
 import Intro from "./_components/Intro";
+import Gallery from "./_components/Gallery";
+import Article from "./_components/Article";
 
 const images = [
     { src: "/arvore.png" },
@@ -92,8 +94,8 @@ export default async function Home() {
                 </section>
             </main>
             <section>
-                <div className="grid grid-cols-12 gap-5 mt-12 bg-[#f2f2f2e6]">
-                    <div className="col-start-2 col-span-5 text-xl flex flex-col gap-y-8 py-10">
+                <div className="grid grid-cols-12 gap-5 mt-12 bg-[#f2f2f2e6] max-md:flex-col-reverse">
+                    <div className="md:col-start-2 md:col-span-5 2xl:col-start-3 2xl:col-span-3 3xl:col-start-4 3xl:col-span-2 text-xl flex flex-col  gap-y-8 py-10">
                         <p className="">
                             Aproveite as belas praias, piscinas naturais e
                             corredeiras para relaxar, nadar e praticar bóia
@@ -122,7 +124,7 @@ export default async function Home() {
                         </p>
                         <p>Estamos te esperando!</p>
                     </div>
-                    <div className="col-span-6 w-auto relative">
+                    <div className="col-span-6  3xl:col-span-7 w-auto relative">
                         <Image
                             className="object-cover"
                             alt=""
@@ -133,85 +135,41 @@ export default async function Home() {
                 </div>
             </section>
 
-            <section>
-                <Intro title="Acomodações">
-                    <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
-                        <p>
-                            Aconchego, conforto e natureza! <br />
-                            Temos várias opções de chalés, de acordo com sua
-                            necessidade.
-                        </p>
-                    </div>
-                </Intro>
-                <div className="flex flex-col gap-10">
-                    {rooms.map((room, index) => (
-                        <Card
-                            key={index}
-                            image={room.thumbnail}
-                            title={room.title}
-                            url={room.url}
-                        >
-                            {room.intro}
-                        </Card>
-                    ))}
-                </div>
-            </section>
-            <main
-                id="content"
-                className="flex min-h-screen flex-col items-center py-22"
-            >
-                <div className="py-22 w-full">
-                    <Title>Acomodações</Title>
-                    <div className="text-center text-2xl mt-[3.3rem] mb-12">
-                        <p>Aconchego, conforto e natureza!</p>
-                        <p>
-                            Temos várias opções de chalés, de acordo com sua
-                            necessidade.
-                        </p>
-                    </div>
-                    {/* <Card url="www" image="/rede.jpg" title="Chalé de 1 quarto">
-                        Chalé com varanda, vista para a serra, ar-condicionado,
-                        frigobar e cozinha.
-                    </Card> */}
-                </div>
-                <div className="py-22 w-full">
-                    <Title>Algumas fotos</Title>
-                    <div className="text-2xl text-center my-12">
-                        <p>Aconchego, conforto e natureza!</p>
-                        <p>
-                            Temos várias opções de chalés, de acordo com sua
-                            necessidade.
-                        </p>
-                    </div>
-                    <div className="w-full grid grid-cols-12 gap-5">
-                        <div className="col-start-2 col-span-10 w-full grid grid-cols-3 grid-rows-2 grid-flow-col">
-                            {images.map((image, index) => (
-                                <div
-                                    key={index}
-                                    className="h-81 w-auto relative hover:cursor-pointer"
-                                >
-                                    {/* <Image
-                                        key={index}
-                                        className="object-cover"
-                                        src={image.src}
-                                        alt={`Image ${index + 1}`}
-                                        onClick={() => setIndex(index)}
-                                        fill
-                                    /> */}
-                                </div>
-                            ))}
+            <main className="grid grid-cols-12 px-3 md:px-5 w-full max-w-screen-xl mx-auto text-darker-blue gap-4">
+                <section className="col-span-12 col-start-1">
+                    <Intro title="Acomodações">
+                        <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
+                            <p>
+                                Aconchego, conforto e natureza! <br />
+                                Temos várias opções de chalés, de acordo com sua
+                                necessidade.
+                            </p>
                         </div>
+                    </Intro>
+                    <div className="flex flex-col gap-10">
+                        {rooms.map((room, index) => (
+                            <Card
+                                key={index}
+                                image={room.thumbnail}
+                                title={room.title}
+                                url={room.url}
+                            >
+                                {room.intro}
+                            </Card>
+                        ))}
                     </div>
-                </div>
-                {/* <Lightbox
-                    index={index}
-                    open={index >= 0}
-                    close={() => setIndex(-1)}
-                    slides={images}
-                    render={{ slide: NextJsImage }}
-                /> */}
+                </section>
+
+                <section className="col-span-10 col-start-2 my-20">
+                    <Intro title="Algumas fotos" />
+
+                    <div className="">
+                        <Gallery slides={images} />
+                    </div>
+                </section>
             </main>
-            <Footer></Footer>
+
+            <Footer />
         </>
     );
 }
