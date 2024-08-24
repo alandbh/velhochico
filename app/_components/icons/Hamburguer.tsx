@@ -13,7 +13,7 @@ function Hamburguer({
             width={width}
             height={height}
             fill="none"
-            viewBox={`0 0 ${width} ${height}`}
+            viewBox={`0 0 44 44`}
         >
             <path
                 fill={color}
