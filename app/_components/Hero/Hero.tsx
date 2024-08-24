@@ -115,8 +115,9 @@ const Hero = ({ data }: HeroProps) => {
                     <Button
                         text="reserve já"
                         icon={<IconWhatsapp color="white" />}
-                        style="primary"
                         href="https://wa.me/553799290110"
+                        size="large"
+                        style="primary"
                     />
                     <Link className="rotate-90" href="#content">
                         <Arrow color="white" height="40" width="40" />
