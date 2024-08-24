@@ -91,3 +91,31 @@
 .lettering p:last-child {
     font-size: 1rem;
 }
+
+@media (max-width: 768px) {
+    .lettering {
+        display: flex;
+        flex-direction: column;
+        width: calc(100% - 40px);
+        margin: 0 auto;
+        gap: 20px;
+    }
+    .lettering h1,
+    .lettering p {
+        font-size: 4rem;
+        line-height: 1;
+    }
+
+    .lettering p:first-child,
+    .lettering p:last-child {
+        width: calc(100% - 60px);
+        line-height: 1.4;
+    }
+
+    .lettering p:first-child {
+        font-size: 1rem;
+    }
+    .lettering p:last-child {
+        font-size: 0.8rem;
+    }
+}

@@ -9,6 +9,7 @@ import Link from "next/link";
 import Arrow from "../icons/Arrow";
 
 import styles from "./Hero.module.css";
+import Hamburguer from "../icons/Hamburguer";
 
 type HeroProps = {
     data: {
@@ -43,7 +44,7 @@ const Hero = ({ data }: HeroProps) => {
     };
 
     return (
-        <header className="flex flex-col h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
+        <header className="flex flex-col h-[100vh] md:h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
             <div className={styles.currentImage1}>
                 <Image
                     alt=""
@@ -67,13 +68,12 @@ const Hero = ({ data }: HeroProps) => {
                 )}
             </div>
             <div className="w-full max-w-screen-lg mx-auto z-10 flex flex-col h-full justify-between">
-                <div className="flex justify-between h-fit items-center z-10">
-                    <div className="">
-                        <LogoLink href="/"></LogoLink>
-                    </div>
-                    <div className="col-start-7 flex align-baseline">
-                        <NavMenu />
-                    </div>
+                <div className="flex md:justify-between justify-center h-fit items-center z-10 relative">
+                    <LogoLink href="/" />
+                    <button className="absolute top-2 right-3 p-1">
+                        <Hamburguer height={32} width={32} />
+                    </button>
+                    <NavMenu />
                 </div>
                 <div className="relative flex flex-1 items-center">
                     {data[1].content && (
@@ -112,13 +112,25 @@ const Hero = ({ data }: HeroProps) => {
                     </div>
                 </div>
                 <div className="z-20 flex justify-center items-center flex-col gap-10 mb-10">
-                    <Button
-                        text="reserve já"
-                        icon={<IconWhatsapp color="white" />}
-                        href="https://wa.me/553799290110"
-                        size="large"
-                        style="primary"
-                    />
+                    <div className="max-md:hidden">
+                        <Button
+                            text="reserve já"
+                            icon={<IconWhatsapp color="white" />}
+                            href="https://wa.me/553799290110"
+                            size="large"
+                            style="primary"
+                        />
+                    </div>
+                    <div className="md:hidden">
+                        <Button
+                            text="reserve já"
+                            icon={<IconWhatsapp color="white" />}
+                            href="https://wa.me/553799290110"
+                            size="medium"
+                            style="primary"
+                        />
+                    </div>
+
                     <Link className="rotate-90" href="#content">
                         <Arrow color="white" height="40" width="40" />
                     </Link>

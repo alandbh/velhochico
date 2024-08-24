@@ -6,15 +6,11 @@ type CardProps = {
     title: string;
     children: React.ReactNode;
     url: string;
-    key?: number;
 };
 
-const Card = ({ key, image, title, children, url }: CardProps) => {
+const Card = ({ image, title, children, url }: CardProps) => {
     return (
-        <div
-            key={key}
-            className="w-full md:h-[21rem] grid grid-cols-12 md:gap-x-5 gap-x-3 px-3 md:px-0"
-        >
+        <div className="w-full md:h-[21rem] grid grid-cols-12 md:gap-x-5 gap-x-3 px-3 md:px-0">
             <div className="flex flex-col self-center gap-y-[0.9rem] content md:col-span-5 col-span-7 md:col-start-2 text-darkest-blue md:pl-8">
                 <h2 className="text-xl md:text-4xl">{title}</h2>
                 <p className="max-md:text-sm">{children}</p>
