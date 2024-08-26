@@ -21,7 +21,7 @@ type HeroProps = {
 const Hero = ({ data }: HeroProps) => {
     const [currentImage, setCurrentImage] = useState<number>(0);
 
-    console.log("ola", data);
+    // console.log("ola", data);
 
     if (data[1].image && data[1].content) {
         setTimeout(() => {
