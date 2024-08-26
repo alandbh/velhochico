@@ -27,3 +27,19 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`;
+
+  export const QUERY_CHAMADA_HOME = `
+  {
+    pages(where: {title: "Home"}) {
+      nodes {
+        title
+        conteudoPaginaInicial {
+         chamada {
+          titulo
+          textoDaChamada
+        }
+        }
+      }
+    }
+  }
+  `

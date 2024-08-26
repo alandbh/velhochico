@@ -1,16 +1,14 @@
 "use server";
 import * as React from "react";
 import Image from "next/image";
-import Title from "./_components/Title";
 import Card from "./_components/Card";
 import Footer from "./_components/Footer";
 import "yet-another-react-lightbox/styles.css";
 import Hero from "./_components/Hero/Hero";
 import fetchData from "./lib/fetchData";
-import { QUERY_HERO_DATA } from "./lib/queries";
+import { QUERY_HERO_DATA, QUERY_CHAMADA_HOME } from "./lib/queries";
 import Intro from "./_components/Intro";
 import Gallery from "./_components/Gallery";
-import Article from "./_components/Article";
 
 const images = [
     { src: "/arvore.png" },
@@ -48,6 +46,16 @@ export default async function Home() {
 
     /**
      *
+     * Fetching CHAMADA data from API
+     * --------------------------------
+     */
+
+    const chamadaDataJson = await fetchData<any>(QUERY_CHAMADA_HOME);
+
+    console.log("ola", chamadaDataJson);
+
+    /**
+     *
      * Fetching rooms data from API
      * --------------------------------
      */
@@ -78,18 +86,20 @@ export default async function Home() {
             <Hero data={heroData} />
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
-                    <Intro title="A pousada">
-                        <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
-                            <p>
-                                Desfrute da tranquilidade e da beleza da Serra
-                                da Canastra na Pousada Velho Chico.
-                            </p>
-                            <p>
-                                Um refúgio cercado por belas árvores como
-                                pau-brasil, jacarandá e ipê, a apenas 300 metros
-                                do Rio São Francisco.
-                            </p>
-                        </div>
+                    <Intro
+                        title={
+                            chamadaDataJson.pages.nodes[0].conteudoPaginaInicial
+                                .chamada.titulo
+                        }
+                    >
+                        <div
+                            dangerouslySetInnerHTML={{
+                                __html: chamadaDataJson.pages.nodes[0]
+                                    .conteudoPaginaInicial.chamada
+                                    .textoDaChamada,
+                            }}
+                            className="text-sm md:text-[24px] leading-normal flex flex-col gap-4"
+                        ></div>
                     </Intro>
                 </section>
             </main>
