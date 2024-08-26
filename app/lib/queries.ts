@@ -43,3 +43,21 @@ export const QUERY_HERO_DATA = `{
     }
   }
   `
+  export const QUERY_CONTEUDO_DESTAQUE = `{
+    pages(where: {title: "Home"}) {
+      nodes {
+        title
+        conteudoPaginaInicial {
+          destaque {
+            texto
+            imagem {
+              node{
+                sourceUrl
+              }
+            }
+          }
+         
+        }
+      }
+    }
+  }`
