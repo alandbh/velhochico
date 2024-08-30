@@ -5,6 +5,8 @@ import Gallery from "@/app/_components/Gallery";
 import Header from "@/app/_components/Header";
 import IconWhatsapp from "@/app/_components/icons/Whatsapp";
 import Intro from "@/app/_components/Intro";
+import fetchRooms from "@/app/lib/fetchRooms";
+
 const images = [
     { src: "/arvore.png" },
     { src: "/cachoeira1.png" },
@@ -13,27 +15,9 @@ const images = [
     { src: "/queijos.jpg" },
     { src: "/chale.jpg" },
 ];
-const rooms = [
-    {
-        title: "Chalé de 1 quarto",
-        intro: "Chalé com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-        url: "/chale-1-quarto",
-        thumbnail: "/rede.jpg",
-    },
-    {
-        title: "Chalé de 2 quartos",
-        intro: "Chalé de 2 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-        url: "/chale-2-quartos",
-        thumbnail: "/chale.jpg",
-    },
-    {
-        title: "Chalé de 3 quarto",
-        intro: "Chalé de 3 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-        url: "/chale-3-quartos",
-        thumbnail: "/ceu.png",
-    },
-];
-export default function Chale() {
+
+export default async function Chale() {
+    const roomsList = await fetchRooms();
     return (
         <>
             <Header backgroundImg="/chale.jpg">Acomodação</Header>
@@ -139,12 +123,13 @@ export default function Chale() {
                         </div>
                     </Intro>
                     <div className="flex flex-col gap-10">
-                        {rooms.map((room, index) => (
+                        {roomsList.map((room) => (
                             <Card
-                                key={index}
+                                key={room.id}
                                 image={room.thumbnail}
                                 title={room.title}
                                 url={room.url}
+                                id={room.id}
                             >
                                 {room.intro}
                             </Card>

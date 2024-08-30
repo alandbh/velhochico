@@ -131,13 +131,13 @@ export default async function Home() {
                         </div>
                     </Intro>
                     <div className="flex flex-col gap-10 mt-10">
-                        <Debugg data={roomsList} filter="room" />;
-                        {roomsList.map((room, index) => (
+                        {roomsList.map((room) => (
                             <Card
-                                key={index}
+                                key={room.id}
                                 image={room.thumbnail}
                                 title={room.title}
                                 url={room.url}
+                                id={room.id}
                             >
                                 {room.intro}
                             </Card>
