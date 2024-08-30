@@ -14,6 +14,7 @@ async function fetchRooms() {
         intro: string;
         url: string;
         thumbnail: string;
+        id: string;
     };
     
     const roomsList: Room[] = roomsListJson.acomodacoes.nodes.map(
@@ -25,6 +26,7 @@ async function fetchRooms() {
                 thumbnail:
                     room.informacoesDaAcomodacao.thumbnail.node.mediaDetails
                         .filteredSizes[0].sourceUrl,
+                id:room.databaseId
             };
         }
     );
