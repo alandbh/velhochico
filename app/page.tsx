@@ -3,7 +3,6 @@ import * as React from "react";
 import Image from "next/image";
 import Card from "./_components/Card";
 import Footer from "./_components/Footer";
-import "yet-another-react-lightbox/styles.css";
 import Hero from "./_components/Hero/Hero";
 import fetchData from "./lib/fetchData";
 import {
@@ -14,6 +13,7 @@ import {
 import Intro from "./_components/Intro";
 import Gallery from "./_components/Gallery";
 import Debugg from "./_components/Debugg";
+import fetchRooms from "./lib/fetchRooms";
 
 const images = [
     { src: "/arvore.png", thumb: "/arvore-t.jpg" },
@@ -71,26 +71,7 @@ export default async function Home() {
      * --------------------------------
      */
 
-    const rooms = [
-        {
-            title: "Chalé de 1 quarto",
-            intro: "Chalé com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-            url: "/chale-1-quarto",
-            thumbnail: "/rede.jpg",
-        },
-        {
-            title: "Chalé de 2 quartos",
-            intro: "Chalé de 2 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-            url: "/chale-2-quartos",
-            thumbnail: "/chale.jpg",
-        },
-        {
-            title: "Chalé de 3 quarto",
-            intro: "Chalé de 3 quartos com varanda, vista para a serra, ar-condicionado, frigobar e cozinha.",
-            url: "/chale-3-quartos",
-            thumbnail: "/ceu.png",
-        },
-    ];
+    const roomsList = await fetchRooms();
 
     return (
         <>
@@ -150,7 +131,8 @@ export default async function Home() {
                         </div>
                     </Intro>
                     <div className="flex flex-col gap-10 mt-10">
-                        {rooms.map((room, index) => (
+                        <Debugg data={roomsList} filter="room" />;
+                        {roomsList.map((room, index) => (
                             <Card
                                 key={index}
                                 image={room.thumbnail}

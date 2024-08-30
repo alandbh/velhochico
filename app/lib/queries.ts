@@ -61,3 +61,25 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`
+
+  export const QUERY_ROOMS_LIST = `{
+    acomodacoes {
+      nodes {
+        slug
+        title
+        databaseId
+        informacoesDaAcomodacao {
+          textoDeChamada
+          thumbnail {
+            node {
+              mediaDetails {
+                filteredSizes(sizes: "medium") {
+                  sourceUrl
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
