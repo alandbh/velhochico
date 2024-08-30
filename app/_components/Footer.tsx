@@ -4,11 +4,14 @@ import Facebook from "./icons/Facebook";
 import Twitter from "./icons/Twitter";
 import Instagram from "./icons/Instagram";
 import IconWhatsapp from "./icons/Whatsapp";
+import Image from "next/image";
 
 const Footer = () => {
     return (
         <div className="md:h-65 h-auto py-10 md:py-0 w-full bg-darkest-blue flex justify-between items-center text-white relative px-5 lg:px-20 mt-[5.5rem]">
-            <div className="bg-darkest-blue h-20 w-20 absolute -top-3 rotate-45 -translate-x-[50%]	left-[50%] -z-10"></div>
+            <div className="h-5 w-20 absolute -top-4  -translate-x-[50%]	left-[50%] -z-10">
+                <Image alt="" src={"./triangle.svg"} fill />
+            </div>
 
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5 max-w-screen-xl mx-auto text-white/75">
                 <div className="flex flex-col gap-4 flex-1 items-center md:items-start text-center">
