@@ -16,12 +16,12 @@ import Gallery from "./_components/Gallery";
 import Debugg from "./_components/Debugg";
 
 const images = [
-    { src: "/arvore.png" },
-    { src: "/cachoeira1.png" },
-    { src: "/cachoeira2.png" },
-    { src: "/ceu.png" },
-    { src: "/queijos.jpg" },
-    { src: "/chale.jpg" },
+    { src: "/arvore.png", thumb: "/arvore-t.jpg" },
+    { src: "/cachoeira1.png", thumb: "/cachoeira1.png" },
+    { src: "/cachoeira2.png", thumb: "/cachoeira2.png" },
+    { src: "/ceu.png", thumb: "/ceu.png" },
+    { src: "/queijos.jpg", thumb: "/queijos.jpg" },
+    { src: "/chale.jpg", thumb: "/chale.jpg" },
 ];
 
 export default async function Home() {
