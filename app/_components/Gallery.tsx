@@ -11,6 +11,7 @@ type GalleryProps = {
 
 type Slide = {
     src: string;
+    thumb?: string;
 };
 const Gallery = ({ slides }: GalleryProps) => {
     const [index, setIndex] = useState(-1);
@@ -22,11 +23,11 @@ const Gallery = ({ slides }: GalleryProps) => {
                     <Image
                         key={index}
                         className="object-cover aspect-square cursor-pointer transition-all brightness-90 hover:brightness-125 hover:ring-slate-400/50 hover:ring-1 hover:ring-offset-slate-50 hover:ring-offset-8 hover:shadow-2xl hover:z-50"
-                        src={image.src}
+                        src={image.thumb || image.src}
                         alt={`Image ${index + 1}`}
                         onClick={() => setIndex(index)}
-                        width={3000}
-                        height={3000}
+                        width={400}
+                        height={400}
                         role="button"
                         aria-label="Expandir imagem"
                     />
