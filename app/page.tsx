@@ -114,6 +114,9 @@ export default async function Home() {
                                     .sourceUrl
                             }
                             fill
+                            loading="lazy"
+                            placeholder="blur"
+                            blurDataURL="/blur.svg"
                         />
                     </div>
                 </div>

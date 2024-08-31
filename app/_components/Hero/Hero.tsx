@@ -54,6 +54,9 @@ const Hero = ({ data }: HeroProps) => {
                     style={currentImage === 1 ? fade.out : fade.in}
                     className={`object-cover  object-center ${styles.images} `}
                     data-slide="0"
+                    loading="lazy"
+                    placeholder="blur"
+                    blurDataURL="/blur.svg"
                 />
                 {data[1].content && data[1].image && (
                     <Image
@@ -64,6 +67,9 @@ const Hero = ({ data }: HeroProps) => {
                         style={currentImage === 1 ? fade.in : fade.out}
                         className={`object-cover object-center ${styles.images} `}
                         data-slide="0"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="/blur.svg"
                     />
                 )}
             </div>

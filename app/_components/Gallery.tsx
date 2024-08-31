@@ -12,6 +12,7 @@ type GalleryProps = {
 type Slide = {
     src: string;
     thumb?: string;
+    base64?: any;
 };
 const Gallery = ({ slides }: GalleryProps) => {
     const [index, setIndex] = useState(-1);
@@ -30,6 +31,9 @@ const Gallery = ({ slides }: GalleryProps) => {
                         height={400}
                         role="button"
                         aria-label="Expandir imagem"
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="/blur.svg"
                     />
                 ))}
             </div>
