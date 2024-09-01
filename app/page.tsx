@@ -15,6 +15,7 @@ import Intro from "./_components/Intro";
 import Gallery from "./_components/Gallery";
 import Debugg from "./_components/Debugg";
 import fetchRooms from "./lib/fetchRooms";
+import fetchGallery from "./lib/fetchGallery";
 
 export default async function Home() {
     /**
@@ -71,16 +72,10 @@ export default async function Home() {
      * --------------------------------
      */
 
-    const galleryDataJson = await fetchData<any>(QUERY_GALLERY_HOME);
-
-    const galleryImages =
-        galleryDataJson.pages.nodes[0].conteudoPaginaInicial.galeriaDeFotosDaHome.nodes.map(
-            (image: { sourceUrl: string }) => {
-                return {
-                    src: image.sourceUrl,
-                };
-            }
-        );
+    const galleryImages = await fetchGallery(
+        QUERY_GALLERY_HOME,
+        "galeriaDeFotosDaHome"
+    );
 
     return (
         <>
