@@ -9,20 +9,12 @@ import {
     QUERY_HERO_DATA,
     QUERY_CHAMADA_HOME,
     QUERY_CONTEUDO_DESTAQUE,
+    QUERY_GALLERY_HOME,
 } from "./lib/queries";
 import Intro from "./_components/Intro";
 import Gallery from "./_components/Gallery";
 import Debugg from "./_components/Debugg";
 import fetchRooms from "./lib/fetchRooms";
-
-const images = [
-    { src: "/arvore.png", thumb: "/arvore-t.jpg" },
-    { src: "/cachoeira1.png", thumb: "/cachoeira1.png" },
-    { src: "/cachoeira2.png", thumb: "/cachoeira2.png" },
-    { src: "/ceu.png", thumb: "/ceu.png" },
-    { src: "/queijos.jpg", thumb: "/queijos.jpg" },
-    { src: "/chale.jpg", thumb: "/chale.jpg" },
-];
 
 export default async function Home() {
     /**
@@ -72,6 +64,23 @@ export default async function Home() {
      */
 
     const roomsList = await fetchRooms();
+
+    /**
+     *
+     * Fetching Home Gallery data from API
+     * --------------------------------
+     */
+
+    const galleryDataJson = await fetchData<any>(QUERY_GALLERY_HOME);
+
+    const galleryImages =
+        galleryDataJson.pages.nodes[0].conteudoPaginaInicial.galeriaDeFotosDaHome.nodes.map(
+            (image: { sourceUrl: string }) => {
+                return {
+                    src: image.sourceUrl,
+                };
+            }
+        );
 
     return (
         <>
@@ -152,7 +161,7 @@ export default async function Home() {
                     <Intro title="Algumas fotos" />
 
                     <div className="">
-                        <Gallery slides={images} />
+                        <Gallery slides={galleryImages} />
                     </div>
                 </section>
             </main>

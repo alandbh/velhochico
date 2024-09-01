@@ -83,3 +83,17 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`
+
+  export const QUERY_GALLERY_HOME = `{
+    pages(where: {title: "Home"}) {
+      nodes {
+        conteudoPaginaInicial {
+          galeriaDeFotosDaHome {
+            nodes {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }`
