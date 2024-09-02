@@ -74,7 +74,7 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                     fill
                     className="object-cover object-center"
                 />
-                <div className="hidden md:flex justify-around h-fit items-center z-10">
+                <div className="hidden md:flex max-w-screen-lg mx-auto justify-between h-fit items-center z-10 w-full">
                     <LogoLink href="/" />
 
                     <NavMenu />
