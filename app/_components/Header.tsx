@@ -81,7 +81,8 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                 </div>
                 <div className="md:hidden flex justify-center z-10">
                     <div>
-                        <LogoLinkExtended href="/" />
+                        {/* <LogoLinkExtended href="/" /> */}
+                        <LogoLink href="/" />
                     </div>
                     <button
                         onClick={handleHamburguerClick}
@@ -104,9 +105,9 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                 >
                     <button
                         onClick={handleHamburguerClick}
-                        className="absolute right-5 top-5"
+                        className="absolute right-3 top-2 size-10"
                     >
-                        <Close />
+                        <Close width={32} height={32} />
                     </button>
                     <div className="h-full">
                         <NavMenuMobile />
