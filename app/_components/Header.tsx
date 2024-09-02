@@ -5,6 +5,7 @@ import NavMenu from "./NavMenu";
 import Image from "next/image";
 import Hamburguer from "./icons/Hamburguer";
 import LogoLinkExtended from "./LogoLinkExtended";
+import Close from "./icons/Close";
 
 type HeaderProps = {
     backgroundImg: string;
@@ -23,10 +24,12 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
         if (!modalOpen) {
             modalContainer.current.classList.add("fixed");
             modalContainer.current.classList.add("z-20");
-            modalContainer.current.classList.remove("scale-0");
-            modalContainer.current.classList.remove("h-[0px]");
-            modalContainer.current.classList.remove("absolute");
-            modalContainer.current.classList.remove("z-0");
+            modalContainer.current.classList.remove(
+                "scale-0",
+                "h-[0px]",
+                "absolute",
+                "z-0"
+            );
             modalContainer.current.classList.add(
                 "h-[0%]",
                 "w-full",
@@ -37,12 +40,14 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
 
             setTimeout(() => {
                 modalContainer.current.classList.add("h-[100%]");
+                modalContainer.current.style.opacity = 1;
             }, 100);
         } else {
             modalContainer.current.classList.remove("scale-100");
             modalContainer.current.classList.remove("h-[100%]");
             modalContainer.current.classList.add("h-[0%]");
             modalContainer.current.classList.add("scale-0");
+            modalContainer.current.style.opacity = 0;
 
             setTimeout(() => {
                 modalContainer.current.classList.remove(
@@ -54,7 +59,8 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                 modalContainer.current.classList.add("z-0");
                 modalContainer.current.classList.add("absolute");
                 modalContainer.current.classList.add("h-[0px]");
-            }, 510);
+                modalContainer.current.style;
+            }, 310);
         }
     }
     return (
@@ -88,14 +94,18 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                 </h1>
                 <div
                     ref={modalContainer}
-                    style={{ transition: "all .5s" }}
+                    style={{
+                        transition: "all .3s",
+                        transformOrigin: "right top",
+                        opacity: 0,
+                    }}
                     className="bg-darker-blue overflow-clip h-[0px] absolute z-0 scale-0"
                 >
                     <button
                         onClick={handleHamburguerClick}
                         className="absolute right-5 top-5"
                     >
-                        <Hamburguer />
+                        <Close />
                     </button>
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Commodi, culpa debitis ratione totam rerum nam enim
