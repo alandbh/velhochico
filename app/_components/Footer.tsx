@@ -80,7 +80,7 @@ const Footer = () => {
                                 className="flex items-center gap-4 text-2xl hover:underline hover:text-white/100"
                             >
                                 <IconWhatsapp color="#ffffff" />
-                                99929-0110
+                                37 99929-0110
                             </a>
                         </p>
                     </div>
