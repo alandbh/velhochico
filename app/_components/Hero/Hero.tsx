@@ -106,7 +106,7 @@ const Hero = ({ data }: HeroProps) => {
     }
 
     return (
-        <header className="flex flex-col h-[100vh] md:h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
+        <header className="flex flex-col h-[100vh] lg:h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
             <div
                 ref={modalContainer}
                 style={{
@@ -155,11 +155,11 @@ const Hero = ({ data }: HeroProps) => {
                 )}
             </div>
             <div className="w-full max-w-screen-lg mx-auto z-10 flex flex-col h-full justify-between">
-                <div className="flex md:justify-between justify-center h-fit items-center z-10 relative">
+                <div className="flex lg:justify-between justify-center h-fit items-center z-10 relative">
                     <LogoLink href="/" />
                     <button
                         onClick={handleHamburguerClick}
-                        className="absolute top-2 right-3 p-1 md:hidden"
+                        className="absolute top-2 right-3 p-1 lg:hidden"
                     >
                         <Hamburguer height={32} width={32} />
                     </button>
@@ -201,8 +201,8 @@ const Hero = ({ data }: HeroProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="z-20 flex justify-center items-center flex-col gap-10 mb-10">
-                    <div className="max-md:hidden">
+                <div className="z-20 flex justify-center items-center flex-col gap-10 max-lg:gap-5 mb-10 max-lg:mb-5">
+                    <div className="max-lg:hidden">
                         <Button
                             text="reserve já"
                             icon={<IconWhatsapp color="white" />}
@@ -211,7 +211,7 @@ const Hero = ({ data }: HeroProps) => {
                             style="primary"
                         />
                     </div>
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                         <Button
                             text="reserve já"
                             icon={<IconWhatsapp color="white" />}
