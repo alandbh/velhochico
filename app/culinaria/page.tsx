@@ -1,40 +1,47 @@
 import Button from "../_components/Button";
 import Header from "../_components/Header";
 import IconWhatsapp from "../_components/icons/Whatsapp";
-import React from "react";
 import Footer from "../_components/Footer";
 import Intro from "../_components/Intro";
 import Gallery from "../_components/Gallery";
-const images = [
-    { src: "/arvore.png" },
-    { src: "/cachoeira1.png" },
-    { src: "/cachoeira2.png" },
-    { src: "/ceu.png" },
-    { src: "/queijos.jpg" },
-    { src: "/chale.jpg" },
-];
-export default function Culinaria() {
+import Image from "next/image";
+import fetchData from "../lib/fetchData";
+import { QUERY_CULINARIA } from "../lib/queries";
+import Debugg from "../_components/Debugg";
+
+export default async function Culinaria() {
+    /**
+     *
+     * Fetching Hero data from API
+     * --------------------------------
+     */
+    const culinariaJson = await fetchData<any>(QUERY_CULINARIA);
+    const pageData = culinariaJson.pages.nodes[0];
+
+    const slides = pageData.pageContent.galeriaDeFotos.edges.map(
+        (item: { node: { sourceUrl: string } }) => {
+            return {
+                src: item.node.sourceUrl,
+            };
+        }
+    );
+
     return (
         <>
-            <Header backgroundImg="/queijos.jpg">Culinária</Header>
+            <Header backgroundImg={pageData.pageContent.banner.node.sourceUrl}>
+                {pageData.title}
+            </Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
-                    <Intro title="Sabor e simplicidade no ponto">
-                        <p className="text-sm md:text-[24px] leading-normal">
-                            Experimente os mais variados sabores da culinária
-                            mineira! Na Pousada Velho Chico, você poderá se
-                            deliciar com os sabores típicos da nossa terra.
-                        </p>
-                        <p className="text-sm md:text-[24px] leading-normal">
-                            No café da manhã, iguarias como broas, bolos, pães,
-                            doces, e o queijo canastra produzido na própria
-                            pousada.
-                        </p>
-                        <p className="text-sm md:text-[24px] leading-normal">
-                            Além disso, você poderá aproveitar frutas colhidas
-                            diretamente do pé como laranja, abacate, manga,
-                            caju, jambo, goiaba, pitanga, jaca, ameixa e amora.
-                        </p>
+                    <Debugg data={pageData} filter="cul" />
+                    <Intro title={pageData.pageContent.chamada.titulo}>
+                        <div
+                            className="text-2xl max-sm:col-span-10 col-span-8 col-start-2 text-center flex flex-col gap-12 leading-normal"
+                            dangerouslySetInnerHTML={{
+                                __html: pageData.pageContent.chamada
+                                    .textoDaChamada,
+                            }}
+                        ></div>
                     </Intro>
                     <div className="flex justify-center col-span-10">
                         <Button
@@ -46,9 +53,42 @@ export default function Culinaria() {
                     </div>
                 </section>
 
+                <section className="col-span-10 col-start-2 mt-20 mb-0 flex flex-col gap-20">
+                    {pageData.pageContent.itensDaCulinaria?.map(
+                        (
+                            item: {
+                                titulo: string;
+                                descricao: string;
+                                imagem: { node: { sourceUrl: string } };
+                            },
+                            id: number
+                        ) => (
+                            <div
+                                key={id}
+                                className="grid grid-cols-10 max-sm:flex max-sm:flex-col-reverse"
+                            >
+                                <div className="col-span-5 max-sm:col-span-10">
+                                    <h2 className="text-4xl max-sm:text-2xl mb-10 max-sm:mt-5">
+                                        {item.titulo}
+                                    </h2>
+                                    <p>{item.descricao}</p>
+                                </div>
+                                <div className="col-span-5 md:col-span-4 col-start-6 md:col-start-7 max-sm:col-span-10 relative min-h-[250px] max-sm:min-h-[150px]">
+                                    <Image
+                                        src={item.imagem.node.sourceUrl}
+                                        fill
+                                        alt=""
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
+                        )
+                    )}
+                </section>
+
                 <section className="col-span-10 col-start-2 my-20">
                     <Intro title="Pra comer com os olhos" />
-                    <Gallery slides={images} />
+                    <Gallery slides={slides} />
                     <div className="flex justify-center mt-11">
                         <Button
                             text="reserve já"

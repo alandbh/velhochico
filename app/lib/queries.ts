@@ -97,3 +97,38 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`
+
+  export const QUERY_CULINARIA = `{
+    pages(where: {title: "Culinária"}) {
+      nodes {
+        title
+        pageContent {
+          banner {
+            node {
+              sourceUrl
+            }
+          }
+          chamada {
+            titulo
+            textoDaChamada
+          }
+          itensDaCulinaria {
+            titulo
+            descricao
+            imagem {
+              node {
+                sourceUrl
+              }
+            }
+          }
+          galeriaDeFotos {
+            edges {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
