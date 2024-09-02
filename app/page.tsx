@@ -81,7 +81,10 @@ export default async function Home() {
         <>
             <Hero data={heroData} />
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
-                <div className="col-span-10 grid grid-cols-10 col-start-2">
+                <div
+                    id="content"
+                    className="col-span-10 grid grid-cols-10 col-start-2"
+                >
                     <Intro
                         title={
                             chamadaDataJson.pages.nodes[0].conteudoPaginaInicial

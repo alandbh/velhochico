@@ -39,7 +39,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="pt-BR">
+        <html style={{ scrollBehavior: "smooth" }} lang="pt-BR">
             <body
                 className={`${gideonRoman.variable} ${lora.variable} ${licorice.variable} ${montserrat.variable} font-lora`}
             >

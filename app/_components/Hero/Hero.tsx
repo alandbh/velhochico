@@ -43,6 +43,16 @@ const Hero = ({ data }: HeroProps) => {
         },
     };
 
+    // function handleClickScroll(id: string) {
+    //     const target = document.getElementById(id);
+
+    //     if (target) {
+    //         target.scrollIntoView({
+    //             behavior: "smooth",
+    //         });
+    //     }
+    // }
+
     return (
         <header className="flex flex-col h-[100vh] md:h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
             <div className={styles.currentImage1}>
@@ -136,8 +146,14 @@ const Hero = ({ data }: HeroProps) => {
                             style="primary"
                         />
                     </div>
-
-                    <Link className="rotate-90" href="#content">
+                    {/* 
+                    <button
+                        onClick={() => handleClickScroll("content")}
+                        className="rotate-90"
+                    >
+                        <Arrow color="white" height="40" width="40" />
+                    </button> */}
+                    <Link href="#content" className="rotate-90">
                         <Arrow color="white" height="40" width="40" />
                     </Link>
                 </div>
