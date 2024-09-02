@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
 import LogoLink from "../LogoLink";
 import NavMenu from "../NavMenu";
@@ -10,6 +10,8 @@ import Arrow from "../icons/Arrow";
 
 import styles from "./Hero.module.css";
 import Hamburguer from "../icons/Hamburguer";
+import Close from "../icons/Close";
+import NavMenuMobile from "../NavMenuMobile";
 
 type HeroProps = {
     data: {
@@ -20,6 +22,56 @@ type HeroProps = {
 
 const Hero = ({ data }: HeroProps) => {
     const [currentImage, setCurrentImage] = useState<number>(0);
+    const modalContainer = useRef<null | any>(null);
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+    function handleHamburguerClick() {
+        console.log("modalContainer", modalOpen);
+
+        setModalOpen(modalOpen ? false : true);
+
+        if (!modalOpen) {
+            modalContainer.current.classList.add("fixed");
+            modalContainer.current.classList.add("z-20");
+            modalContainer.current.classList.remove(
+                "scale-0",
+                "h-[0px]",
+                "absolute",
+                "z-0"
+            );
+            modalContainer.current.classList.add(
+                "h-[0%]",
+                "w-full",
+                "fixed",
+                "z-20",
+                "scale-100"
+            );
+
+            setTimeout(() => {
+                modalContainer.current.classList.add("h-[100%]");
+                modalContainer.current.style.opacity = 1;
+            }, 100);
+        } else {
+            modalContainer.current.classList.remove("scale-100");
+            modalContainer.current.classList.remove("h-[100%]");
+            modalContainer.current.classList.add("h-[0%]");
+            modalContainer.current.classList.add("scale-0");
+            modalContainer.current.style.opacity = 0;
+
+            setTimeout(() => {
+                modalContainer.current.classList.remove(
+                    "h-[0%]",
+                    "w-full",
+                    "fixed"
+                );
+                modalContainer.current.classList.remove("z-20");
+                modalContainer.current.classList.add("z-0");
+                modalContainer.current.classList.add("absolute");
+                modalContainer.current.classList.add("h-[0px]");
+                modalContainer.current.style;
+            }, 310);
+        }
+    }
 
     // console.log("ola", data);
 
@@ -43,18 +95,37 @@ const Hero = ({ data }: HeroProps) => {
         },
     };
 
-    // function handleClickScroll(id: string) {
-    //     const target = document.getElementById(id);
+    function handleClickScroll(id: string) {
+        const target = document.getElementById(id);
 
-    //     if (target) {
-    //         target.scrollIntoView({
-    //             behavior: "smooth",
-    //         });
-    //     }
-    // }
+        if (target) {
+            target.scrollIntoView({
+                behavior: "smooth",
+            });
+        }
+    }
 
     return (
         <header className="flex flex-col h-[100vh] md:h-[80vh] before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative w-full overflow-clip">
+            <div
+                ref={modalContainer}
+                style={{
+                    transition: "all .3s",
+                    transformOrigin: "right top",
+                    opacity: 0,
+                }}
+                className="bg-darker-blue overflow-clip h-[0px] absolute z-0 scale-0"
+            >
+                <button
+                    onClick={handleHamburguerClick}
+                    className="absolute right-3 top-2 size-10 flex items-center justify-center"
+                >
+                    <Close width={32} height={32} />
+                </button>
+                <div className="h-full">
+                    <NavMenuMobile />
+                </div>
+            </div>
             <div className={styles.currentImage1}>
                 <Image
                     alt=""
@@ -86,7 +157,10 @@ const Hero = ({ data }: HeroProps) => {
             <div className="w-full max-w-screen-lg mx-auto z-10 flex flex-col h-full justify-between">
                 <div className="flex md:justify-between justify-center h-fit items-center z-10 relative">
                     <LogoLink href="/" />
-                    <button className="absolute top-2 right-3 p-1 md:hidden">
+                    <button
+                        onClick={handleHamburguerClick}
+                        className="absolute top-2 right-3 p-1 md:hidden"
+                    >
                         <Hamburguer height={32} width={32} />
                     </button>
                     <NavMenu />
@@ -146,16 +220,16 @@ const Hero = ({ data }: HeroProps) => {
                             style="primary"
                         />
                     </div>
-                    {/* 
+
                     <button
                         onClick={() => handleClickScroll("content")}
                         className="rotate-90"
                     >
                         <Arrow color="white" height="40" width="40" />
-                    </button> */}
-                    <Link href="#content" className="rotate-90">
+                    </button>
+                    {/* <Link href="#content" className="rotate-90 relative z-10">
                         <Arrow color="white" height="40" width="40" />
-                    </Link>
+                    </Link> */}
                 </div>
             </div>
         </header>

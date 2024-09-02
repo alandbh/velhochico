@@ -6,6 +6,7 @@ import Image from "next/image";
 import Hamburguer from "./icons/Hamburguer";
 import LogoLinkExtended from "./LogoLinkExtended";
 import Close from "./icons/Close";
+import NavMenuMobile from "./NavMenuMobile";
 
 type HeaderProps = {
     backgroundImg: string;
@@ -84,9 +85,9 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                     </div>
                     <button
                         onClick={handleHamburguerClick}
-                        className="absolute right-5 top-5"
+                        className="absolute right-3 top-2 size-10"
                     >
-                        <Hamburguer />
+                        <Hamburguer width={32} height={32} />
                     </button>
                 </div>
                 <h1 className="text-white z-10 font-licorice md:text-9xl text-6xl text-center flex items-center self-center h-97">
@@ -107,10 +108,9 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                     >
                         <Close />
                     </button>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Commodi, culpa debitis ratione totam rerum nam enim
-                    excepturi, libero deleniti maxime quas id accusantium eum
-                    cumque alias architecto. Cumque, architecto ipsam?
+                    <div className="h-full">
+                        <NavMenuMobile />
+                    </div>
                 </div>
             </div>
         </div>

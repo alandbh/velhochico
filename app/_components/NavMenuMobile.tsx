@@ -1,10 +1,9 @@
 import NavLink from "./NavLink";
-import Hamburguer from "./icons/Hamburguer";
 
-const NavMenu = () => {
+const NavMenuMobile = () => {
     return (
-        <nav className="hidden md:block">
-            <ul className="flex gap-8 text-base max-md:flex-col">
+        <nav className="md:hidden flex flex-col justify-center items-center h-full">
+            <ul className="flex gap-10 flex-col items-center justify-center text-3xl h-full">
                 <NavLink href="/">Início</NavLink>
                 <NavLink href="/acomodacoes">Acomodações</NavLink>
                 <NavLink href="/culinaria">Culinária</NavLink>
@@ -15,4 +14,4 @@ const NavMenu = () => {
     );
 };
 
-export default NavMenu;
+export default NavMenuMobile;
