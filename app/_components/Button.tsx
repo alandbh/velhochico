@@ -16,7 +16,7 @@ const Button = ({
     icon,
 }: ButtonPropsTypes) => {
     const buttonClasses = {
-        base: " focus:outline-none focus:ring-4 hover:ring-4 ring-green-300/50 font-montserrat font-bold uppercase flex w-fit ",
+        base: " focus:outline-none focus:ring-4 hover:ring-4 ring-green-300/50 font-montserrat font-bold uppercase flex w-fit items-center ",
         primary:
             " bg-green-2 focus:bg-green-700 hover:bg-green-700 text-white rounded-md  ",
         regular:
