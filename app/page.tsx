@@ -121,6 +121,7 @@ export default async function Home() {
                                     .sourceUrl
                             }
                             fill
+                            sizes="200"
                             loading="lazy"
                             placeholder="blur"
                             blurDataURL="/blur.svg"

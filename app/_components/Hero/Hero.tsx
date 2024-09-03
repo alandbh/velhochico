@@ -130,7 +130,7 @@ const Hero = ({ data }: HeroProps) => {
                 <Image
                     alt=""
                     src={data[0].image}
-                    quality={100}
+                    // quality={100}
                     fill
                     style={currentImage === 1 ? fade.out : fade.in}
                     className={`object-cover  object-center ${styles.images} `}
@@ -143,7 +143,7 @@ const Hero = ({ data }: HeroProps) => {
                     <Image
                         alt=""
                         src={data[1].image}
-                        quality={100}
+                        // quality={100}
                         fill
                         style={currentImage === 1 ? fade.in : fade.out}
                         className={`object-cover object-center ${styles.images} `}

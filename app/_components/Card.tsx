@@ -44,6 +44,7 @@ const Card = async ({ image, title, children, url, id }: CardProps) => {
                     src={image}
                     quality={100}
                     fill
+                    sizes="10"
                     loading="lazy"
                     placeholder="blur"
                     blurDataURL={base64}
