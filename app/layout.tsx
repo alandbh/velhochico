@@ -28,7 +28,10 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-    title: "Pousada Velho Chico",
+    title: {
+        absolute: "Pousada Velho Chico",
+        template: "%s :: Pousada Velho Chico",
+    },
     description:
         "Descubra a Pousada Velho Chico, localizada na charmosa Serra da Canastra, em Minas Gerais. Experimente a autêntica vida rural e conheça de perto o processo artesanal de fabricação do famoso Queijo Canastra. Relaxe em meio às belezas naturais da região, explore trilhas, cachoeiras e aproveite momentos únicos em uma pousada que ainda preserva as tradições e atividades de fazenda. Venha vivenciar a tranquilidade e o charme do interior de Minas Gerais.",
 };
