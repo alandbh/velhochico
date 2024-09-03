@@ -5,7 +5,6 @@ import LogoLink from "../LogoLink";
 import NavMenu from "../NavMenu";
 import Button from "../Button";
 import IconWhatsapp from "../icons/Whatsapp";
-import Link from "next/link";
 import Arrow from "../icons/Arrow";
 
 import styles from "./Hero.module.css";
@@ -223,9 +222,11 @@ const Hero = ({ data }: HeroProps) => {
 
                     <button
                         onClick={() => handleClickScroll("content")}
-                        className="rotate-90"
+                        className="animate-bounce"
                     >
-                        <Arrow color="white" height="40" width="40" />
+                        <span className="rotate-90 block">
+                            <Arrow color="white" height="40" width="40" />
+                        </span>
                     </button>
                     {/* <Link href="#content" className="rotate-90 relative z-10">
                         <Arrow color="white" height="40" width="40" />
