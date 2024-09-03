@@ -1,11 +1,67 @@
 import Button from "@/app/_components/Button";
 import Card from "@/app/_components/Card";
+import Debugg from "@/app/_components/Debugg";
 import Footer from "@/app/_components/Footer";
 import Gallery from "@/app/_components/Gallery";
 import Header from "@/app/_components/Header";
 import IconWhatsapp from "@/app/_components/icons/Whatsapp";
 import Intro from "@/app/_components/Intro";
+import fetchData from "@/app/lib/fetchData";
 import fetchRooms from "@/app/lib/fetchRooms";
+import { QUERY_SINGLE_ROOM } from "@/app/lib/queries";
+
+import type { Metadata } from "next";
+
+// let title;
+// let description;
+
+// export let metadata: Metadata = {
+//     title: {
+//         absolute: title || "",
+//     },
+//     description: "aasasasasasa",
+// };
+
+// or Dynamic metadata
+
+let roomContentJson: any;
+let title: string;
+let textoDeChamada: string;
+
+type Props = {
+    params: {
+        slug: string;
+    };
+};
+export const generateMetadata = async ({ params }: Props) => {
+    roomContentJson = await fetchData(QUERY_SINGLE_ROOM, {
+        roomPath: "/acomodacao/chale-3-quartos-bla/",
+    });
+
+    title = roomContentJson.nodeByUri.title;
+    textoDeChamada =
+        roomContentJson.nodeByUri.informacoesDaAcomodacao.textoDeChamada;
+
+    return {
+        title: title,
+        description: textoDeChamada,
+    };
+};
+
+// export async function generateMetadata(params: any) {
+//     // const { title, description } = params;
+//     const title = await params.slug;
+//     if (title == undefined) {
+//         return null;
+//     }
+//     const description = "sasas";
+//     console.log("oioi", params);
+
+//     return {
+//         title: title + " :: Pousada Velho Chico",
+//         description: description || "defaultDescription",
+//     };
+// }
 
 const images = [
     { src: "/arvore.png" },
@@ -16,12 +72,19 @@ const images = [
     { src: "/chale.jpg" },
 ];
 
-export default async function Chale() {
+export default async function RoomDetails() {
     const roomsList = await fetchRooms();
+    // const roomContentJson: any = await fetchData(QUERY_SINGLE_ROOM);
+
+    // const title: string = roomContentJson.nodeByUri.title;
+
+    // generateMetadata(params);
+
     return (
         <>
             <Header backgroundImg="/chale.jpg">Acomodação</Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
+                <Debugg data={roomContentJson} filter="paaaa" />
                 <section className="col-span-10 grid grid-cols-10 col-start-2 py-22">
                     <Intro title="chalé de 1 quarto">
                         <p className="text-sm md:text-[24px] leading-normal">
