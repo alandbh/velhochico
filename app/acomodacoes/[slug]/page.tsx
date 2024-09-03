@@ -48,21 +48,6 @@ export const generateMetadata = async ({ params }: Props) => {
     };
 };
 
-// export async function generateMetadata(params: any) {
-//     // const { title, description } = params;
-//     const title = await params.slug;
-//     if (title == undefined) {
-//         return null;
-//     }
-//     const description = "sasas";
-//     console.log("oioi", params);
-
-//     return {
-//         title: title + " :: Pousada Velho Chico",
-//         description: description || "defaultDescription",
-//     };
-// }
-
 const images = [
     { src: "/arvore.png" },
     { src: "/cachoeira1.png" },
@@ -74,22 +59,20 @@ const images = [
 
 export default async function RoomDetails() {
     const roomsList = await fetchRooms();
-    // const roomContentJson: any = await fetchData(QUERY_SINGLE_ROOM);
 
-    // const title: string = roomContentJson.nodeByUri.title;
-
-    // generateMetadata(params);
+    if (roomContentJson === undefined) {
+        return null;
+    }
 
     return (
         <>
             <Header backgroundImg="/chale.jpg">Acomodação</Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
                 <Debugg data={roomContentJson} filter="paaaa" />
-                <section className="col-span-10 grid grid-cols-10 col-start-2 py-22">
-                    <Intro title="chalé de 1 quarto">
+                <section className="col-span-10 grid grid-cols-10 col-start-2 py-10">
+                    <Intro title={title}>
                         <p className="text-sm md:text-[24px] leading-normal">
-                            Chalé com varanda, vista para a serra,
-                            ar-condicionado, frigobar e cozinha.
+                            {textoDeChamada}
                         </p>
                     </Intro>
                     <div className="col-span-10">
