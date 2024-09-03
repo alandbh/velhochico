@@ -132,3 +132,26 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`
+
+  export const QUERY_SINGLE_ROOM = `query GetRoomBySlug($roomPath: String!) {
+    nodeByUri(uri: $roomPath) {
+      __typename
+      ... on Acomodacao {
+        title
+        informacoesDaAcomodacao {
+          thumbnail {
+            node {
+              sourceUrl
+            }
+          }
+          textoDeChamada
+          caracteristicasDoChale
+          fotosDesteChale {
+            nodes {
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }`

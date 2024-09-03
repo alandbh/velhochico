@@ -1,4 +1,5 @@
-export default async function fetchData<T>(queryString: string): Promise<T> {
+type AnyObject = Record<string, any>;
+export default async function fetchData<T>(queryString: string, variables?:AnyObject): Promise<T> {
     const dataRaw = await fetch(
         "https://apivelhochico.alanvasconcelos.net/index.php?graphql",
         {
@@ -10,6 +11,7 @@ export default async function fetchData<T>(queryString: string): Promise<T> {
 
             body: JSON.stringify({
                 query: queryString,
+                variables
             }),
             cache: "force-cache",
         }
