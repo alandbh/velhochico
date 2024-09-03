@@ -11,6 +11,7 @@ async function fetchRooms() {
     
     type Room = {
         title: string;
+        slug: string;
         intro: string;
         url: string;
         thumbnail: string;
@@ -21,6 +22,7 @@ async function fetchRooms() {
         (room: any) => {
             return {
                 title: room.title,
+                slug: room.slug,
                 intro: room.informacoesDaAcomodacao.textoDeChamada,
                 url: `/acomodacoes/${room.slug}`,
                 thumbnail:
