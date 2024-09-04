@@ -8,9 +8,11 @@ import IconWhatsapp from "@/app/_components/icons/Whatsapp";
 import Intro from "@/app/_components/Intro";
 import fetchData from "@/app/lib/fetchData";
 import fetchRooms from "@/app/lib/fetchRooms";
+import styles from "./page.module.css";
 import { QUERY_SINGLE_ROOM } from "@/app/lib/queries";
 
 import type { Metadata } from "next";
+import fetchGallery from "@/app/lib/fetchGallery";
 
 // let title;
 // let description;
@@ -27,6 +29,9 @@ import type { Metadata } from "next";
 let roomContentJson: any;
 let title: string;
 let textoDeChamada: string;
+let caracteristicasDoChale: string;
+let slides: any;
+let thumbnail: any;
 
 type Props = {
     params: {
@@ -34,13 +39,31 @@ type Props = {
     };
 };
 export const generateMetadata = async ({ params }: Props) => {
+    // console.log({ params });
+
     roomContentJson = await fetchData(QUERY_SINGLE_ROOM, {
-        roomPath: "/acomodacao/chale-3-quartos-bla/",
+        roomPath: `/acomodacao/${params.slug}/`,
     });
 
     title = roomContentJson.nodeByUri.title;
     textoDeChamada =
         roomContentJson.nodeByUri.informacoesDaAcomodacao.textoDeChamada;
+
+    caracteristicasDoChale =
+        roomContentJson.nodeByUri.informacoesDaAcomodacao
+            .caracteristicasDoChale;
+
+    slides =
+        roomContentJson.nodeByUri.informacoesDaAcomodacao.fotosDesteChale.nodes.map(
+            (node: { sourceUrl: string }) => {
+                return {
+                    src: node.sourceUrl,
+                };
+            }
+        );
+    thumbnail =
+        roomContentJson.nodeByUri.informacoesDaAcomodacao.thumbnail.node
+            .sourceUrl;
 
     return {
         title: title,
@@ -48,17 +71,14 @@ export const generateMetadata = async ({ params }: Props) => {
     };
 };
 
-const images = [
-    { src: "/arvore.png" },
-    { src: "/cachoeira1.png" },
-    { src: "/cachoeira2.png" },
-    { src: "/ceu.png" },
-    { src: "/queijos.jpg" },
-    { src: "/chale.jpg" },
-];
-
-export default async function RoomDetails() {
+export default async function RoomDetails({
+    params,
+}: {
+    params: { slug: string };
+}) {
     const roomsList = await fetchRooms();
+
+    const otherRooms = roomsList.filter((room) => room.slug !== params.slug);
 
     if (roomContentJson === undefined) {
         return null;
@@ -66,76 +86,21 @@ export default async function RoomDetails() {
 
     return (
         <>
-            <Header backgroundImg="/chale.jpg">Acomodação</Header>
+            <Header backgroundImg={thumbnail}>Acomodação</Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
-                <Debugg data={roomContentJson} filter="paaaa" />
-                <section className="col-span-10 grid grid-cols-10 col-start-2 py-10">
+                <Debugg data={otherRooms} filter="paaaa" />
+                <section className="col-span-10 grid grid-cols-10 col-start-2 pb-10">
                     <Intro title={title}>
                         <p className="text-sm md:text-[24px] leading-normal">
                             {textoDeChamada}
                         </p>
                     </Intro>
-                    <div className="col-span-10">
-                        <h2 className="text-3xl mb-4">
-                            Características do chalé
-                        </h2>
-                        <p>Área do chalé: 12 m²</p>
-                    </div>
-                    <div className="col-span-3 mt-[14.4px] ">
-                        <p>
-                            <b>Na sua cozinha privativa:</b>
-                        </p>
-                        <ul className="list-disc ml-7 my-4">
-                            <li>Utensílios de cozinha</li>
-                            <li>Frigobar</li>
-                            <li>Fogão</li>
-                            <li>Mesa de jantar</li>
-                        </ul>
-                        <p>
-                            <b>No seu banheiro privativo:</b>
-                        </p>
-                        <ul className="list-disc ml-7 my-4">
-                            <li>Chuveiro</li>
-                            <li>Vaso sanitário</li>
-                            <li>Papel higiênicoFogão</li>
-                        </ul>
-                        <p>
-                            <b>Vista:</b>
-                        </p>
-                        <ul className="list-disc ml-7 my-4">
-                            <li>Varanda </li>
-                            <li>Vista do jardim </li>
-                            <li>Vista da montanha</li>
-                            <li>Varanda térrea</li>
-                        </ul>
-                    </div>
-                    <div className="col-start-6 col-span-3 mt-[14.4px]">
-                        <p>
-                            <b>Comodidades do chalé:</b>
-                        </p>
-                        <ul className="list-disc ml-7 mt-4 mb-12">
-                            <li>TV</li>
-                            <li>Roupa de cama</li>
-                            <li>Frigobar</li>
-                            <li>Mesa de jantar</li>
-                            <li>Fogão</li>
-                            <li>Piso de mármore/azulejo</li>
-                            <li>Utensílios de cozinha</li>
-                            <li>Cozinha</li>
-                            <li>Ventilador</li>
-                            <li>Varal para secar roupas</li>
-                            <li>Toalhas</li>
-                            <li>Mosquiteiro</li>
-                            <li>Canais via satélite</li>
-                            <li>Tomada perto da cama</li>
-                            <li>Ar-condicionado</li>
-                        </ul>
-
-                        <p className="mb-4">
-                            <b>Fumantes:</b>
-                        </p>
-                        <p>Não é permitido fumar</p>
-                    </div>
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: caracteristicasDoChale,
+                        }}
+                        className={`col-span-10 md:columns-2 ${styles.mainContent}`}
+                    ></div>
                 </section>
                 <div className="flex justify-center col-span-12">
                     <Button
@@ -148,7 +113,7 @@ export default async function RoomDetails() {
 
                 <section className="col-span-10 col-start-2 mt-20">
                     <Intro title="fotos deste chalé" />
-                    <Gallery slides={images} />
+                    <Gallery slides={slides} />
                     <div className="flex justify-center mt-20">
                         <Button
                             text="reserve já"
@@ -169,7 +134,7 @@ export default async function RoomDetails() {
                         </div>
                     </Intro>
                     <div className="flex flex-col gap-10">
-                        {roomsList.map((room) => (
+                        {otherRooms.map((room) => (
                             <Card
                                 key={room.id}
                                 image={room.thumbnail}

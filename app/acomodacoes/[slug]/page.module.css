@@ -1,0 +1,38 @@
+.mainContent {
+    column-gap: 40px;
+    margin-top: 2rem;
+}
+
+.mainContent h1,
+.mainContent h2:first-child {
+    font-size: 2.25rem;
+    column-span: all;
+    margin-bottom: 1.5rem;
+}
+
+.mainContent p:first-of-type {
+    column-span: all;
+}
+
+.mainContent p:has(strong),
+.mainContent h3,
+.mainContent h2 {
+    margin: 1rem 0;
+    font-weight: bold;
+}
+
+.mainContent ul {
+    list-style: disc;
+    list-style-position: inside;
+}
+
+@media (max-width: 768px) {
+    .mainContent h1,
+    .mainContent h2:first-child {
+        font-size: 1.3rem;
+    }
+
+    .mainContent {
+        margin-top: 0;
+    }
+}
