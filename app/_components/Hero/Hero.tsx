@@ -200,7 +200,7 @@ const Hero = ({ data }: HeroProps) => {
                         </div>
                     </div>
                 </div>
-                <div className="z-20 flex justify-center items-center flex-col gap-10 max-lg:gap-5 mb-10 max-lg:mb-5">
+                <div className="z-20 flex justify-center items-center flex-col gap-10 max-lg:gap-5 mb-10 max-lg:mb-20">
                     <div className="max-lg:hidden">
                         <Button
                             text="reserve já"
@@ -210,7 +210,7 @@ const Hero = ({ data }: HeroProps) => {
                             style="primary"
                         />
                     </div>
-                    <div className="lg:hidden">
+                    <div className="lg:hidden mb-5">
                         <Button
                             text="reserve já"
                             icon={<IconWhatsapp color="white" />}
