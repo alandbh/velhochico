@@ -22,17 +22,17 @@ export default async function Acomodacoes() {
 
     return (
         <>
-            <Header backgroundImg={pageData.pageContent.banner4.node.sourceUrl}>
+            <Header backgroundImg={pageData.contentPage.banner4.node.sourceUrl}>
                 {pageData.title}
             </Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
                     <Debugg data={pageData} filter="acomo" />
-                    <Intro title={pageData.pageContent.chamada4.titulo}>
+                    <Intro title={pageData.contentPage.chamada4.titulo}>
                         <div
                             className="flex flex-col gap-12 leading-normal"
                             dangerouslySetInnerHTML={{
-                                __html: pageData.pageContent.chamada4
+                                __html: pageData.contentPage.chamada4
                                     .textoDaChamada,
                             }}
                         ></div>
