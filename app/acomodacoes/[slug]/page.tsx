@@ -11,27 +11,9 @@ import fetchRooms from "@/app/lib/fetchRooms";
 import styles from "./page.module.css";
 import { QUERY_SINGLE_ROOM } from "@/app/lib/queries";
 
-import type { Metadata } from "next";
-import fetchGallery from "@/app/lib/fetchGallery";
-
-// let title;
-// let description;
-
-// export let metadata: Metadata = {
-//     title: {
-//         absolute: title || "",
-//     },
-//     description: "aasasasasasa",
-// };
-
-// or Dynamic metadata
-
-// let roomContentJson: any;
 let metaTitle: string;
 let metaTextoDeChamada: string;
-// let caracteristicasDoChale: string;
-// let slides: any;
-let metaThumbnail: any;
+let metaThumbnail: string;
 
 type Props = {
     params: {
