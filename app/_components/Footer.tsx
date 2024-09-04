@@ -10,7 +10,7 @@ const Footer = () => {
     return (
         <div className="md:h-65 h-auto py-10 md:py-0 w-full bg-darkest-blue flex justify-between items-center text-white relative px-5 lg:px-20 mt-[5.5rem]">
             <div className="h-5 w-20 absolute -top-4  -translate-x-[50%]	left-[50%] -z-10">
-                <Image alt="" src={"./triangle.svg"} fill />
+                <Image alt="" src={"/triangle.svg"} fill />
             </div>
 
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5 max-w-screen-xl mx-auto text-white/75">

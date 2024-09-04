@@ -66,13 +66,12 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
     }
     return (
         <div>
-            <div className="before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative h-97 w-full flex flex-col mb-8">
+            <div className="before:content[''] before:h-full before:w-full before:absolute before:bg-header-bg before:z-10 relative h-80 w-full flex flex-col mb-8">
                 <Image
                     alt=""
                     src={backgroundImg}
-                    quality={100}
                     fill
-                    className="object-cover object-center"
+                    className="object-cover object-center h-full"
                 />
                 <div className="hidden md:flex max-w-screen-lg mx-auto justify-between h-fit items-center z-10 w-full">
                     <LogoLink href="/" />
@@ -91,7 +90,7 @@ const Header = ({ children, backgroundImg }: HeaderProps) => {
                         <Hamburguer width={32} height={32} />
                     </button>
                 </div>
-                <h1 className="text-white z-10 font-licorice md:text-9xl text-6xl text-center flex items-center self-center h-97">
+                <h1 className="text-white z-10 font-licorice md:text-7xl text-6xl text-center flex items-center self-center h-97">
                     {children}
                 </h1>
                 <div
