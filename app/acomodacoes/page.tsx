@@ -13,7 +13,7 @@ export default async function Acomodacoes() {
     /**
      *
      * Fetching Hero data from API
-     * --------------------------------
+     * --------------------------------_
      */
     const pageDataJson = await fetchData<any>(QUERY_ACOMODACOES);
     const pageData = pageDataJson.pages.nodes[0];
