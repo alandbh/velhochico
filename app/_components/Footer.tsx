@@ -21,7 +21,7 @@ const Footer = () => {
                     <p>
                         Estrada Vargem Bonita a{" "}
                         <span className="whitespace-nowrap">
-                            Casca D'Anta, km 05.
+                            Casca D&apos;Anta, km 05.
                         </span>
                     </p>
                     <p>
