@@ -41,7 +41,7 @@ const Footer = () => {
                         <h3 className="sr-only">
                             Siga-nos em nossas redes sociais
                         </h3>
-                        <ul className="flex flex-col items-stretch self-center gap-3 content w-32">
+                        <ul className="flex flex-col items-stretch self-center gap-3 max-md:gap-6 content w-32">
                             <li>
                                 <a
                                     href="/#"
@@ -51,15 +51,7 @@ const Footer = () => {
                                     Facebook
                                 </a>
                             </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="flex gap-4 hover:underline hover:text-white/100"
-                                >
-                                    <Twitter />
-                                    Twitter
-                                </a>
-                            </li>
+
                             <li>
                                 <a
                                     href="#"
