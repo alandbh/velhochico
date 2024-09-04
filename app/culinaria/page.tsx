@@ -71,8 +71,8 @@ export default async function Culinaria() {
                                     pageData.pageContent.itensDaCulinaria
                                         .length -
                                         1 && (
-                                    <div className=" flex justify-center mt-10">
-                                        <div className="h-1 bg-dark-blue/50 w-28 sm:hidden"></div>
+                                    <div className=" flex justify-center mt-10  sm:hidden">
+                                        <div className="h-1 bg-dark-blue/50 w-28"></div>
                                     </div>
                                 )}
                                 <div className="col-span-5 max-sm:col-span-10">
