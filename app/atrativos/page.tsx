@@ -23,7 +23,7 @@ export default function Atrativos() {
             <main className="grid grid-cols-12 px-3 md:px-5 text-darkest-blue">
                 <div className="col-span-10 grid grid-cols-10 col-start-2 ">
                     <Intro title="natureza, aventura e diversão">
-                        <p className="text-sm md:text-[24px] leading-normal">
+                        <p>
                             Venha se encantar com o majestoso Rio São Francisco,
                             ideal para um banho refrescante ou mergulho
                             revigorante. Em apenas 18 km, explore a deslumbrante

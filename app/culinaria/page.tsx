@@ -36,7 +36,7 @@ export default async function Culinaria() {
                     <Debugg data={pageData} filter="cul" />
                     <Intro title={pageData.pageContent.chamada.titulo}>
                         <div
-                            className="text-2xl max-sm:col-span-10 col-span-8 col-start-2 text-center flex flex-col gap-12 leading-normal"
+                            className="flex flex-col gap-12 leading-normal"
                             dangerouslySetInnerHTML={{
                                 __html: pageData.pageContent.chamada
                                     .textoDaChamada,
@@ -53,7 +53,7 @@ export default async function Culinaria() {
                     </div>
                 </section>
 
-                <section className="col-span-10 col-start-2 mt-20 mb-0 flex flex-col gap-20">
+                <section className="col-span-10 col-start-2 mt-20 mb-0 flex flex-col gap-11">
                     {pageData.pageContent.itensDaCulinaria?.map(
                         (
                             item: {
@@ -65,10 +65,18 @@ export default async function Culinaria() {
                         ) => (
                             <div
                                 key={id}
-                                className="grid grid-cols-10 max-sm:flex max-sm:flex-col-reverse"
+                                className="grid grid-cols-10 max-sm:flex max-sm:flex-col-reverse "
                             >
+                                {id !==
+                                    pageData.pageContent.itensDaCulinaria
+                                        .length -
+                                        1 && (
+                                    <div className=" flex justify-center mt-10">
+                                        <div className="h-1 bg-dark-blue/50 w-28 sm:hidden"></div>
+                                    </div>
+                                )}
                                 <div className="col-span-5 max-sm:col-span-10">
-                                    <h2 className="text-4xl max-sm:text-2xl mb-10 max-sm:mt-5">
+                                    <h2 className="text-4xl max-sm:text-2xl mb-10 max-sm:mt-5 max-sm:mb-5">
                                         {item.titulo}
                                     </h2>
                                     <p>{item.descricao}</p>
@@ -86,7 +94,7 @@ export default async function Culinaria() {
                     )}
                 </section>
 
-                <section className="col-span-10 col-start-2 my-20">
+                <section className="col-span-10 col-start-2 my-20 max-sm:my-10">
                     <Intro title="Pra comer com os olhos" />
                     <Gallery slides={slides} />
                     <div className="flex justify-center mt-11">

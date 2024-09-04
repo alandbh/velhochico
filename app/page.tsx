@@ -97,7 +97,7 @@ export default async function Home() {
                                     .conteudoPaginaInicial.chamada
                                     .textoDaChamada,
                             }}
-                            className="text-sm md:text-[24px] leading-normal flex flex-col gap-4"
+                            className="flex flex-col gap-4"
                         ></div>
                     </Intro>
                 </div>
@@ -133,7 +133,7 @@ export default async function Home() {
             <main className="grid grid-cols-12 px-3 md:px-5 w-full max-w-screen-xl mx-auto text-darker-blue gap-4">
                 <section className="col-span-12 col-start-1">
                     <Intro title="Acomodações">
-                        <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
+                        <div className="flex flex-col gap-4">
                             <p>
                                 Aconchego, conforto e natureza! <br />
                                 Temos várias opções de chalés, de acordo com sua

@@ -34,6 +34,12 @@ const config: Config = {
         "licorice": ['var(--font-licorice)'],
         "montserrat": ['var(--font-montserrat)']
       },
+      fontSize: {
+        "intro": "1.2rem"
+      },
+      lineHeight: {
+        "intro": "1.5"
+      },
       height: {
         "97":"25rem",
         "65": "17rem",

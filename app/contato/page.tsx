@@ -16,7 +16,7 @@ export default function Contato() {
             <main className="grid grid-cols-12 px-3 md:px-5 text-darkest-blue">
                 <div className="col-span-10 grid grid-cols-10 col-start-2 ">
                     <Intro title="estamos sempre de portas abertas">
-                        <p className="text-sm md:text-[24px] leading-normal">
+                        <p>
                             Atualmente, nosso atendimento é feito,
                             exclusivamente, via telefone ou WhatsApp no seguinte
                             número:
@@ -54,7 +54,7 @@ export default function Contato() {
                                 </p>
                                 <p>
                                     Em Vargem Bonita, pegue a estrada de terra
-                                    para Casca D’anta e ande por mais 5 Km.
+                                    para Casca D&apos;anta e ande por mais 5 Km.
                                 </p>
                             </Content>
                         </Article>
@@ -63,7 +63,7 @@ export default function Contato() {
                             <Button
                                 text="ROTA PARA WAZE"
                                 icon={<Waze color="#27AE60" />}
-                                href="https://www.waze.com/en/live-map/directions/br/mg/pousada-velho-chico?place=ChIJgwC0pT1MsZQRfilMKgLNysw"
+                                href="https://www.waze.com/pt-BR/live-map/directions/br/mg/pousada-velho-chico?place=ChIJgwC0pT1MsZQRfilMKgLNysw"
                             />
                             <Button
                                 text="ROTA PARA GOOGLE MAPS"
