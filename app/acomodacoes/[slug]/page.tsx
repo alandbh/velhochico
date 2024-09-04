@@ -26,48 +26,56 @@ import fetchGallery from "@/app/lib/fetchGallery";
 
 // or Dynamic metadata
 
-let roomContentJson: any;
-let title: string;
-let textoDeChamada: string;
-let caracteristicasDoChale: string;
-let slides: any;
-let thumbnail: any;
+// let roomContentJson: any;
+let metaTitle: string;
+let metaTextoDeChamada: string;
+// let caracteristicasDoChale: string;
+// let slides: any;
+let metaThumbnail: any;
 
 type Props = {
     params: {
         slug: string;
     };
 };
+
+// Next.js will invalidate the cache when a
+// request comes in, at most once every 60 seconds.
+export const revalidate = 60;
+
+// We'll prerender only the params from `generateStaticParams` at build time.
+// If a request comes in for a path that hasn't been generated,
+// Next.js will server-render the page on-demand.
+export const dynamicParams = true; // or false, to 404 on unknown paths
+
+export async function generateStaticParams({ params }: Props) {
+    const roomsList = await fetchRooms();
+    return roomsList.map((room) => ({
+        id: room.id,
+        slug: room.slug,
+        title: room.title,
+        thumbnail: room.thumbnail,
+        url: room.url,
+    }));
+}
+
 export const generateMetadata = async ({ params }: Props) => {
     // console.log({ params });
 
-    roomContentJson = await fetchData(QUERY_SINGLE_ROOM, {
+    const roomContentJson: any = await fetchData(QUERY_SINGLE_ROOM, {
         roomPath: `/acomodacao/${params.slug}/`,
     });
 
-    title = roomContentJson.nodeByUri.title;
-    textoDeChamada =
+    metaTitle = roomContentJson.nodeByUri.title;
+    metaTextoDeChamada =
         roomContentJson.nodeByUri.informacoesDaAcomodacao.textoDeChamada;
-
-    caracteristicasDoChale =
-        roomContentJson.nodeByUri.informacoesDaAcomodacao
-            .caracteristicasDoChale;
-
-    slides =
-        roomContentJson.nodeByUri.informacoesDaAcomodacao.fotosDesteChale.nodes.map(
-            (node: { sourceUrl: string }) => {
-                return {
-                    src: node.sourceUrl,
-                };
-            }
-        );
-    thumbnail =
+    metaThumbnail =
         roomContentJson.nodeByUri.informacoesDaAcomodacao.thumbnail.node
             .sourceUrl;
 
     return {
-        title: title,
-        description: textoDeChamada,
+        title: metaTitle,
+        description: metaTextoDeChamada,
     };
 };
 
@@ -76,11 +84,32 @@ export default async function RoomDetails({
 }: {
     params: { slug: string };
 }) {
+    const roomContent: any = await fetchData(QUERY_SINGLE_ROOM, {
+        roomPath: `/acomodacao/${params.slug}/`,
+    });
+
+    const title = roomContent.nodeByUri.title;
+    const textoDeChamada =
+        roomContent.nodeByUri.informacoesDaAcomodacao.textoDeChamada;
+
+    const caracteristicasDoChale =
+        roomContent.nodeByUri.informacoesDaAcomodacao.caracteristicasDoChale;
+
+    const slides =
+        roomContent.nodeByUri.informacoesDaAcomodacao.fotosDesteChale.nodes.map(
+            (node: { sourceUrl: string }) => {
+                return {
+                    src: node.sourceUrl,
+                };
+            }
+        );
+    const thumbnail =
+        roomContent.nodeByUri.informacoesDaAcomodacao.thumbnail.node.sourceUrl;
     const roomsList = await fetchRooms();
 
     const otherRooms = roomsList.filter((room) => room.slug !== params.slug);
 
-    if (roomContentJson === undefined) {
+    if (roomContent === undefined) {
         return null;
     }
 
@@ -88,7 +117,7 @@ export default async function RoomDetails({
         <>
             <Header backgroundImg={thumbnail}>Acomodação</Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
-                <Debugg data={otherRooms} filter="paaaa" />
+                <Debugg data={roomsList} filter="paaaa" />
                 <section className="col-span-10 grid grid-cols-10 col-start-2 pb-10">
                     <Intro title={title}>
                         <p className="text-sm md:text-[24px] leading-normal">
