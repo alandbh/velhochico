@@ -133,6 +133,25 @@ export const QUERY_HERO_DATA = `{
     }
   }`
 
+  export const QUERY_ACOMODACOES = `{
+    pages(where: {title: "Acomodações"}) {
+      nodes {
+        title
+        pageContent {
+          banner {
+            node {
+              sourceUrl
+            }
+          }
+          chamada {
+            titulo
+            textoDaChamada
+          }
+        }
+      }
+    }
+  }`
+
   export const QUERY_SINGLE_ROOM = `query GetRoomBySlug($roomPath: String!) {
     nodeByUri(uri: $roomPath) {
       __typename
