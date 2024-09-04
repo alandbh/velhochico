@@ -16,29 +16,49 @@ export default async function Culinaria() {
      * --------------------------------
      */
     const culinariaJson = await fetchData<any>(QUERY_CULINARIA);
+    console.log({ culinariaJson });
+
     const pageData = culinariaJson.pages.nodes[0];
 
-    const slides = pageData.pageContent.galeriaDeFotos.edges.map(
-        (item: { node: { sourceUrl: string } }) => {
+    const slides = pageData.pageContent.galeriaDeFotos3.nodes.map(
+        (item: { sourceUrl: string }) => {
             return {
-                src: item.node.sourceUrl,
+                src: item.sourceUrl,
+            };
+        }
+    );
+
+    const itensDaCulinaria = pageData.pageContent.itensdaculinaria3.map(
+        (item: {
+            titulo: string;
+            descricao: string;
+            imagem: {
+                node: {
+                    sourceUrl: string;
+                };
+            };
+        }) => {
+            return {
+                titulo: item.titulo,
+                descricao: item.descricao,
+                imagem: item.imagem.node.sourceUrl,
             };
         }
     );
 
     return (
         <>
-            <Header backgroundImg={pageData.pageContent.banner.node.sourceUrl}>
+            <Header backgroundImg={pageData.pageContent.banner3.node.sourceUrl}>
                 {pageData.title}
             </Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
-                    <Debugg data={pageData} filter="cul" />
-                    <Intro title={pageData.pageContent.chamada.titulo}>
+                    <Debugg data={pageData} filter="cuu" />
+                    <Intro title={pageData.pageContent.chamada3.titulo}>
                         <div
                             className="flex flex-col gap-12 leading-normal"
                             dangerouslySetInnerHTML={{
-                                __html: pageData.pageContent.chamada
+                                __html: pageData.pageContent.chamada3
                                     .textoDaChamada,
                             }}
                         ></div>
@@ -54,12 +74,12 @@ export default async function Culinaria() {
                 </section>
 
                 <section className="col-span-10 col-start-2 mt-20 mb-0 flex flex-col gap-11">
-                    {pageData.pageContent.itensDaCulinaria?.map(
+                    {itensDaCulinaria.map(
                         (
                             item: {
                                 titulo: string;
                                 descricao: string;
-                                imagem: { node: { sourceUrl: string } };
+                                imagem: string;
                             },
                             id: number
                         ) => (
@@ -67,10 +87,7 @@ export default async function Culinaria() {
                                 key={id}
                                 className="grid grid-cols-10 max-sm:flex max-sm:flex-col-reverse "
                             >
-                                {id !==
-                                    pageData.pageContent.itensDaCulinaria
-                                        .length -
-                                        1 && (
+                                {id !== itensDaCulinaria.length - 1 && (
                                     <div className=" flex justify-center mt-10  sm:hidden">
                                         <div className="h-1 bg-dark-blue/50 w-28"></div>
                                     </div>
@@ -83,7 +100,7 @@ export default async function Culinaria() {
                                 </div>
                                 <div className="col-span-5 md:col-span-4 col-start-6 md:col-start-7 max-sm:col-span-10 relative min-h-[250px] max-sm:min-h-[150px]">
                                     <Image
-                                        src={item.imagem.node.sourceUrl}
+                                        src={item.imagem}
                                         fill
                                         alt=""
                                         className="w-full h-full object-cover"

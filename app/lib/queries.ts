@@ -102,17 +102,18 @@ export const QUERY_HERO_DATA = `{
     pages(where: {title: "Culinária"}) {
       nodes {
         title
+        databaseId
         pageContent {
-          banner {
+          banner3 {
             node {
               sourceUrl
             }
           }
-          chamada {
+          chamada3 {
             titulo
             textoDaChamada
           }
-          itensDaCulinaria {
+          itensdaculinaria3 {
             titulo
             descricao
             imagem {
@@ -121,11 +122,9 @@ export const QUERY_HERO_DATA = `{
               }
             }
           }
-          galeriaDeFotos {
-            edges {
-              node {
-                sourceUrl
-              }
+          galeriaDeFotos3 {
+            nodes {
+              sourceUrl
             }
           }
         }
@@ -137,13 +136,14 @@ export const QUERY_HERO_DATA = `{
     pages(where: {title: "Acomodações"}) {
       nodes {
         title
-        pageContent {
-          banner {
+        databaseId
+        contentPage {
+          banner4 {
             node {
               sourceUrl
             }
           }
-          chamada {
+          chamada4 {
             titulo
             textoDaChamada
           }
