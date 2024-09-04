@@ -12,6 +12,8 @@
 
 .mainContent p:first-of-type {
     column-span: all;
+    margin-bottom: 1.5rem;
+    max-width: 768px;
 }
 
 .mainContent p:has(strong),
@@ -23,7 +25,11 @@
 
 .mainContent ul {
     list-style: disc;
-    list-style-position: inside;
+    list-style-position: outside;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+    break-inside: avoid;
+    break-before: avoid;
 }
 
 @media (max-width: 768px) {
