@@ -16,6 +16,8 @@ import Gallery from "./_components/Gallery";
 import Debugg from "./_components/Debugg";
 import fetchRooms from "./lib/fetchRooms";
 import fetchGallery from "./lib/fetchGallery";
+import Button from "./_components/Button";
+import IconWhatsapp from "./_components/icons/Whatsapp";
 
 export default async function Home() {
     /**
@@ -163,6 +165,16 @@ export default async function Home() {
                         <Gallery slides={galleryImages} />
                     </div>
                 </section>
+
+                <div className="col-span-12 flex justify-center">
+                    <Button
+                        text="reserve já"
+                        icon={<IconWhatsapp color="white" />}
+                        href="https://wa.me/553799290110"
+                        size="large"
+                        style="primary"
+                    />
+                </div>
             </main>
 
             <Footer />
