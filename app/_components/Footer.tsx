@@ -1,7 +1,6 @@
 import React from "react";
 import IconLogo from "./icons/Logo";
 import Facebook from "./icons/Facebook";
-import Twitter from "./icons/Twitter";
 import Instagram from "./icons/Instagram";
 import IconWhatsapp from "./icons/Whatsapp";
 import Image from "next/image";
@@ -18,16 +17,16 @@ const Footer = () => {
                     <div className="mb-5">
                         <IconLogo color="#ffffff" />
                     </div>
-                    <p>
+                    <p className="w-full block">
                         Estrada Vargem Bonita a{" "}
                         <span className="whitespace-nowrap">
                             Casca D&apos;Anta, km 05.
                         </span>
                     </p>
-                    <p>
+                    <p className="w-full block">
                         <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
                     </p>
-                    <p>
+                    <p className="w-full block">
                         <a
                             className="hover:underline hover:text-white/100"
                             href="mailto:contato@pousadavelhochico.com.br"
@@ -37,11 +36,11 @@ const Footer = () => {
                     </p>
                 </div>
                 <div className="flex justify-between flex-1 flex-col-reverse md:flex-row gap-5">
-                    <div className="pt-20 flex flex-col items-center md:items-start">
+                    <div className="md:pt-20 pt-14 flex flex-col items-center md:items-start">
                         <h3 className="sr-only">
                             Siga-nos em nossas redes sociais
                         </h3>
-                        <ul className="flex flex-col items-stretch self-center gap-3 max-md:gap-6 content w-32">
+                        <ul className="flex flex-col items-stretch self-center gap-3 max-md:gap-6 content w-32 mb-10">
                             <li>
                                 <a
                                     href="/#"
@@ -64,7 +63,7 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    <div className="pt-20 flex flex-col items-center md:items-start">
+                    <div className="md:pt-20 pt-10 flex flex-col items-center md:items-start">
                         <h3 className="text-2xl mb-5">Reservas</h3>
                         <p>
                             <a
