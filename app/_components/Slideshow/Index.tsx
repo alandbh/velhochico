@@ -31,6 +31,7 @@ function Slideshow(props: { slidesArr: SlidesType }) {
         >
             {props.slidesArr.map((slide: { sourceUrl: string }) => (
                 <SwiperSlide
+                    key={slide.sourceUrl}
                     style={{ filter: "drop-shadow(-10px -4px 60px #44444477)" }}
                 >
                     <div className="w-full h-full aspect-square max-sm:max-w-36">
