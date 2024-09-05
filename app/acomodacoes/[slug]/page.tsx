@@ -102,10 +102,16 @@ export default async function RoomDetails({
                 <Debugg data={roomsList} filter="paaaa" />
                 <section className="col-span-10 grid grid-cols-10 col-start-2 pb-10">
                     <Intro title={title}>
-                        <p className="text-sm md:text-[24px] leading-normal">
-                            {textoDeChamada}
-                        </p>
+                        <p>{textoDeChamada}</p>
                     </Intro>
+                    <div className="flex col-span-12 justify-center mt-3 mb-10">
+                        <Button
+                            text="reserve já"
+                            icon={<IconWhatsapp color="white" />}
+                            style="primary"
+                            href="https://wa.me/553799290110"
+                        />
+                    </div>
                     <div
                         dangerouslySetInnerHTML={{
                             __html: caracteristicasDoChale,
@@ -122,7 +128,7 @@ export default async function RoomDetails({
                     />
                 </div>
 
-                <section className="col-span-10 col-start-2 mt-20">
+                <section className="col-span-10 col-start-2 mt-10">
                     <Intro title="fotos deste chalé" />
                     <Gallery slides={slides} />
                     <div className="flex justify-center mt-20">
@@ -135,14 +141,12 @@ export default async function RoomDetails({
                     </div>
                 </section>
 
-                <section className="col-span-12 col-start-1 my-20">
+                <section className="col-span-12 col-start-1 my-10">
                     <Intro title="Confira outras opções">
-                        <div className="text-sm md:text-[24px] leading-normal flex flex-col gap-4">
-                            <p>
-                                Além deste chalé, temos também outras opções à
-                                sua escolha.
-                            </p>
-                        </div>
+                        <p>
+                            Além deste chalé, temos também outras opções à sua
+                            escolha.
+                        </p>
                     </Intro>
                     <div className="flex flex-col gap-10">
                         {otherRooms.map((room) => (
