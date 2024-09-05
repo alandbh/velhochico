@@ -8,6 +8,7 @@ import Image from "next/image";
 import fetchData from "../lib/fetchData";
 import { QUERY_CULINARIA } from "../lib/queries";
 import Debugg from "../_components/Debugg";
+import Slideshow from "../_components/Slideshow/Index";
 
 export default async function Culinaria() {
     /**
@@ -32,16 +33,15 @@ export default async function Culinaria() {
         (item: {
             titulo: string;
             descricao: string;
-            imagem: {
-                node: {
-                    sourceUrl: string;
-                };
+            fotos: {
+                nodes: { sourceUrl: string }[];
             };
         }) => {
             return {
                 titulo: item.titulo,
                 descricao: item.descricao,
-                imagem: item.imagem.node.sourceUrl,
+                // imagem: item.imagem.node.sourceUrl,
+                fotos: item.fotos.nodes,
             };
         }
     );
@@ -51,9 +51,9 @@ export default async function Culinaria() {
             <Header backgroundImg={pageData.pageContent.banner3.node.sourceUrl}>
                 {pageData.title}
             </Header>
-            <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue">
+            <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue overflow-x-clip">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
-                    <Debugg data={pageData} filter="cuu" />
+                    <Debugg data={itensDaCulinaria} filter="cuu" />
                     <Intro title={pageData.pageContent.chamada3.titulo}>
                         <div
                             className="flex flex-col gap-12 leading-normal"
@@ -79,7 +79,7 @@ export default async function Culinaria() {
                             item: {
                                 titulo: string;
                                 descricao: string;
-                                imagem: string;
+                                fotos: { sourceUrl: string }[];
                             },
                             id: number
                         ) => (
@@ -99,12 +99,7 @@ export default async function Culinaria() {
                                     <p>{item.descricao}</p>
                                 </div>
                                 <div className="col-span-5 md:col-span-4 col-start-6 md:col-start-7 max-sm:col-span-10 relative min-h-[250px] max-sm:min-h-[150px]">
-                                    <Image
-                                        src={item.imagem}
-                                        fill
-                                        alt=""
-                                        className="w-full h-full object-cover"
-                                    />
+                                    <Slideshow slidesArr={item.fotos} />
                                 </div>
                             </div>
                         )

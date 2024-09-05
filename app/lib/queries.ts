@@ -116,8 +116,8 @@ export const QUERY_HERO_DATA = `{
           itensdaculinaria3 {
             titulo
             descricao
-            imagem {
-              node {
+            fotos {
+              nodes {
                 sourceUrl
               }
             }
