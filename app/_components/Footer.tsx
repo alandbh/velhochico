@@ -13,7 +13,7 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col md:flex-row justify-between items-center w-full gap-5 max-w-screen-xl mx-auto text-white/75">
-                <div className="flex flex-col gap-4 flex-1 items-center md:items-start text-center">
+                <div className="flex flex-col gap-4 flex-1 items-center md:items-start text-center md:text-left">
                     <div className="mb-5">
                         <IconLogo color="#ffffff" />
                     </div>
@@ -24,14 +24,14 @@ const Footer = () => {
                         </span>
                     </p>
                     <p className="w-full block">
-                        <a href="tel:+55 37 99929-0110">+55 37 99929-0110</a>
+                        <a href="tel:+5537999290110">+55 37 99929-0110</a>
                     </p>
                     <p className="w-full block">
                         <a
                             className="hover:underline hover:text-white/100"
-                            href="mailto:contato@pousadavelhochico.com.br"
+                            href="mailto:pousadavelhochico@yahoo.com.br"
                         >
-                            contato@pousadavelhochico.com.br
+                            pousadavelhochico@yahoo.com.br
                         </a>
                     </p>
                 </div>
@@ -43,7 +43,7 @@ const Footer = () => {
                         <ul className="flex flex-col items-stretch self-center gap-3 max-md:gap-6 content w-32 mb-10">
                             <li>
                                 <a
-                                    href="/#"
+                                    href="https://www.facebook.com/PousadaVelhoChico/"
                                     className="flex gap-4 hover:underline hover:text-white/100"
                                 >
                                     <Facebook />
@@ -53,7 +53,7 @@ const Footer = () => {
 
                             <li>
                                 <a
-                                    href="#"
+                                    href="https://www.instagram.com/velhochicopousada/"
                                     className="flex gap-4 hover:underline hover:text-white/100"
                                 >
                                     <Instagram />
