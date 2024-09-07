@@ -174,3 +174,46 @@ export const QUERY_HERO_DATA = `{
       }
     }
   }`
+
+  export const QUERY_ATRATIVOS = `{
+    pages(where: {title: "Atrativos"}) {
+      nodes {
+        title
+        databaseId
+        pageContent5 {
+          banner5 {
+            node {
+              sourceUrl
+            }
+          }
+          chamada5 {
+            titulo
+            textoDaChamada
+          }
+          itens_atrativos {
+            titulo
+            descricao
+            fotos {
+              nodes {
+                sourceUrl
+              }
+            }
+          }
+          galeriaDeFotos5 {
+            nodes {
+              sourceUrl
+            }
+          }
+          destaque {
+            tituloDoDestaque
+            paragrafoDoDestaque
+            imagemDoDestaque {
+              node {
+                sourceUrl
+              }
+            }
+          }
+        }
+      }
+    }
+  }`
