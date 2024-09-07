@@ -4,10 +4,8 @@ import IconWhatsapp from "../_components/icons/Whatsapp";
 import Footer from "../_components/Footer";
 import Intro from "../_components/Intro";
 import Gallery from "../_components/Gallery";
-import Image from "next/image";
 import fetchData from "../lib/fetchData";
 import { QUERY_CULINARIA } from "../lib/queries";
-import Debugg from "../_components/Debugg";
 import Slideshow from "../_components/Slideshow/Index";
 
 export default async function Culinaria() {
@@ -17,7 +15,6 @@ export default async function Culinaria() {
      * --------------------------------
      */
     const culinariaJson = await fetchData<any>(QUERY_CULINARIA);
-    console.log({ culinariaJson });
 
     const pageData = culinariaJson.pages.nodes[0];
 
@@ -53,7 +50,6 @@ export default async function Culinaria() {
             </Header>
             <main className="grid grid-cols-12 px-3 md:px-5 max-w-screen-xl mx-auto text-darker-blue overflow-x-clip">
                 <section className="col-span-10 grid grid-cols-10 col-start-2">
-                    <Debugg data={itensDaCulinaria} filter="cuu" />
                     <Intro title={pageData.pageContent.chamada3.titulo}>
                         <div
                             className="flex flex-col gap-12 leading-normal"
