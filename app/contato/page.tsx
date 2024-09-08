@@ -62,12 +62,12 @@ export default function Contato() {
                         <div className="flex w-full justify-center max-md:items-center gap-3 max-md:flex-col">
                             <Button
                                 text="ROTA PARA WAZE"
-                                icon={<Waze color="#27AE60" />}
+                                icon={<Waze color="currentColor" />}
                                 href="https://www.waze.com/pt-BR/live-map/directions/br/mg/pousada-velho-chico?place=ChIJgwC0pT1MsZQRfilMKgLNysw"
                             />
                             <Button
                                 text="ROTA PARA GOOGLE MAPS"
-                                icon={<IconGoogleMaps color="#27AE60" />}
+                                icon={<IconGoogleMaps color="currentColor" />}
                                 href="https://maps.app.goo.gl/8Ue5T1nusoymfQMf7"
                             />
                         </div>
